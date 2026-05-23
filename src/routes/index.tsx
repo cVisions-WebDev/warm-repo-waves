@@ -8,6 +8,14 @@ import {
   Quote,
   PlayCircle,
 } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import mattHero from "@/assets/matt-hero.jpg";
 import bgHero from "@/assets/bg-hero.jpg";
 import mattLifestyle from "@/assets/matt-lifestyle.jpg";
@@ -64,6 +72,33 @@ const services = [
   { name: "Investor / DSCR", desc: "Leverage and scale for serious investors." },
   { name: "First-Time Buyer", desc: "Step-by-step clarity for your first move." },
   { name: "Complex Income", desc: "Self-employed, 1099, or non-traditional? We find the way." },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Matt looked at our situation and saw a deal where three other lenders saw a wall. We closed in 19 days.",
+    name: "Daniel & Priya R.",
+    detail: "Self-employed jumbo buyers · St. Louis",
+  },
+  {
+    quote:
+      "He educated us through every step. We didn't just get a mortgage — we got a strategy for the next ten years.",
+    name: "Marcus T.",
+    detail: "First-time buyer · Chicago",
+  },
+  {
+    quote:
+      "Two other lenders told me my income was too complicated. Matt structured it, closed it, and made it look easy.",
+    name: "Alicia V.",
+    detail: "1099 contractor · Tampa",
+  },
+  {
+    quote:
+      "DSCR financing on three doors in under a month. Matt is the only call I make on the lending side now.",
+    name: "Jordan K.",
+    detail: "Real estate investor · St. Charles",
+  },
 ];
 
 function HomePage() {
@@ -313,21 +348,36 @@ function HomePage() {
         />
         <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
           <Quote className="h-10 w-10 text-[var(--brand-orange)]" />
-          <blockquote className="mt-6 font-display text-3xl uppercase leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            “Matt looked at our situation and saw a deal where three other
-            lenders saw a wall. We closed in 19 days.”
-          </blockquote>
-          <div className="mt-10 flex items-center gap-4 border-t border-border pt-6">
-            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--brand-blue)] to-[var(--brand-orange)]" />
-            <div>
-              <p className="font-display text-sm uppercase tracking-wider text-foreground">
-                Daniel & Priya R.
-              </p>
-              <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                Self-employed jumbo buyers · St. Louis
-              </p>
+          <Carousel
+            opts={{ align: "start", loop: true }}
+            plugins={[Autoplay({ delay: 6000, stopOnInteraction: true })]}
+            className="mt-6"
+          >
+            <CarouselContent>
+              {testimonials.map((t) => (
+                <CarouselItem key={t.name}>
+                  <blockquote className="font-display text-3xl uppercase leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+                    “{t.quote}”
+                  </blockquote>
+                  <div className="mt-10 flex items-center gap-4 border-t border-border pt-6">
+                    <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--brand-blue)] to-[var(--brand-orange)]" />
+                    <div>
+                      <p className="font-display text-sm uppercase tracking-wider text-foreground">
+                        {t.name}
+                      </p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                        {t.detail}
+                      </p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-10 flex items-center justify-end gap-3">
+              <CarouselPrevious className="static h-10 w-10 translate-y-0 rounded-sm border-border bg-background/60 text-foreground hover:bg-[var(--brand-orange)] hover:text-background" />
+              <CarouselNext className="static h-10 w-10 translate-y-0 rounded-sm border-border bg-background/60 text-foreground hover:bg-[var(--brand-orange)] hover:text-background" />
             </div>
-          </div>
+          </Carousel>
         </div>
       </section>
 
