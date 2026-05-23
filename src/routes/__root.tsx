@@ -77,12 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "The Mortgage Rockstar™ — Clarity. Strategy. Results." },
       { name: "description", content: "Mortgage guidance with Rockstar confidence. Matt Arana helps buyers, investors, and partners win with strategy, clarity, and a VIP client experience." },
       { name: "author", content: "Matt Arana — The Mortgage Rockstar™" },
-      { property: "og:title", content: "The Mortgage Rockstar™" },
-      { property: "og:description", content: "Mortgage guidance with Rockstar confidence. Education first. Strategy always." },
+      { property: "og:title", content: "The Mortgage Rockstar™ — Clarity. Strategy. Results." },
+      { property: "og:description", content: "Mortgage guidance with Rockstar confidence. Matt Arana helps buyers, investors, and partners win with strategy, clarity, and a VIP client experience." },
       { property: "og:site_name", content: "The Mortgage Rockstar™" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0A0B0E" },
+      { name: "twitter:title", content: "The Mortgage Rockstar™ — Clarity. Strategy. Results." },
+      { name: "twitter:description", content: "Mortgage guidance with Rockstar confidence. Matt Arana helps buyers, investors, and partners win with strategy, clarity, and a VIP client experience." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/94f1d570-0b51-4ecb-8054-996c7d04ecb9/id-preview-fbca6506--607f81bd-845a-4f4b-84a6-7625201cb9ae.lovable.app-1779575379034.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/94f1d570-0b51-4ecb-8054-996c7d04ecb9/id-preview-fbca6506--607f81bd-845a-4f4b-84a6-7625201cb9ae.lovable.app-1779575379034.png" },
     ],
     links: [
       {
