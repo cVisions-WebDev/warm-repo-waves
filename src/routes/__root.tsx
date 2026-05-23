@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
 
 function NotFoundComponent() {
   return (
@@ -72,19 +74,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "The Mortgage Rockstar™ — Clarity. Strategy. Results." },
+      { name: "description", content: "Mortgage guidance with Rockstar confidence. Matt Arana helps buyers, investors, and partners win with strategy, clarity, and a VIP client experience." },
+      { name: "author", content: "Matt Arana — The Mortgage Rockstar™" },
+      { property: "og:title", content: "The Mortgage Rockstar™" },
+      { property: "og:description", content: "Mortgage guidance with Rockstar confidence. Education first. Strategy always." },
+      { property: "og:site_name", content: "The Mortgage Rockstar™" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#0A0B0E" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Matt Arana",
+          alternateName: "The Mortgage Rockstar",
+          jobTitle: "Mortgage Advisor",
+          worksFor: { "@type": "Organization", name: "Cornerstone First" },
+          areaServed: ["Missouri", "Illinois", "Florida"],
+        }),
       },
     ],
   }),
@@ -113,7 +130,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Header />
+      <main className="min-h-screen pt-16 lg:pt-20">
+        <Outlet />
+      </main>
+      <Footer />
     </QueryClientProvider>
   );
 }
