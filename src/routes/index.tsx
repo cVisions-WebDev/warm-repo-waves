@@ -19,7 +19,6 @@ import {
 import mattHero from "@/assets/matt-hero.jpg";
 import bgHero from "@/assets/bg-hero.jpg";
 import mattLifestyle from "@/assets/matt-lifestyle.jpg";
-import stockCouple from "@/assets/stock-couple-deal.jpg";
 import stockHandshake from "@/assets/stock-handshake.jpg";
 
 export const Route = createFileRoute("/")({
