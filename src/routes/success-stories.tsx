@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import homeLuxury from "@/assets/home-luxury.jpg";
+import stockCouple from "@/assets/stock-couple-deal.jpg";
+import stockAgent from "@/assets/stock-agent-home.jpg";
+import stockHandshake from "@/assets/stock-handshake.jpg";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
@@ -30,6 +33,7 @@ const cases = [
     who: "Daniel & Priya R. · St. Louis, MO",
     detail:
       "Three lenders said no. We structured a 24-month bank statement jumbo with a 20% down strategy that protected liquidity for their business.",
+    image: stockCouple,
     stats: [
       { k: "$1.4M", v: "Loan amount" },
       { k: "19 days", v: "Close-to-clear" },
@@ -41,6 +45,7 @@ const cases = [
     who: "Sgt. Marcus T. · Tampa, FL",
     detail:
       "Active-duty borrower with restored entitlement and a prior short sale. We rebuilt the file and closed with 0% down at competitive terms.",
+    image: stockAgent,
     stats: [
       { k: "$685K", v: "Purchase price" },
       { k: "0%", v: "Down" },
@@ -52,6 +57,7 @@ const cases = [
     who: "Elena V. · Chicago, IL",
     detail:
       "DSCR strategy structured around cash-flow ratios. Closed four properties in a single quarter without touching personal DTI.",
+    image: stockHandshake,
     stats: [
       { k: "4", v: "Properties" },
       { k: "1.38", v: "Avg DSCR" },
@@ -96,19 +102,25 @@ function SuccessPage() {
         {cases.map((c, i) => (
           <article
             key={c.headline}
-            className="grid gap-8 rounded-sm border border-border bg-[var(--surface)] p-8 lg:grid-cols-12 lg:gap-12 lg:p-12"
+            className="grid gap-8 overflow-hidden rounded-sm border border-border bg-[var(--surface)] lg:grid-cols-12"
           >
-            <div className="lg:col-span-2">
-              <span className="font-display text-5xl text-[var(--brand-orange)]">0{i + 1}</span>
+            <div className="lg:col-span-4">
+              <img
+                src={c.image}
+                alt={c.headline}
+                loading="lazy"
+                className="h-56 w-full object-cover lg:h-full"
+              />
             </div>
-            <div className="lg:col-span-7">
-              <h2 className="font-display text-3xl uppercase leading-tight text-foreground sm:text-4xl">
+            <div className="px-8 pt-2 lg:col-span-5 lg:py-12">
+              <span className="font-display text-3xl text-[var(--brand-orange)]">0{i + 1}</span>
+              <h2 className="mt-3 font-display text-3xl uppercase leading-tight text-foreground sm:text-4xl">
                 {c.headline}
               </h2>
               <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">{c.who}</p>
               <p className="mt-6 leading-relaxed text-muted-foreground">{c.detail}</p>
             </div>
-            <dl className="grid grid-cols-3 gap-4 border-t border-border pt-6 lg:col-span-3 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <dl className="grid grid-cols-3 gap-4 border-t border-border px-8 py-6 lg:col-span-3 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:py-12 lg:pl-8">
               {c.stats.map((s) => (
                 <div key={s.v}>
                   <dt className="font-display text-2xl text-foreground">{s.k}</dt>
