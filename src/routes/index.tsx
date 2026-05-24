@@ -19,7 +19,8 @@ import {
 import mattHero from "@/assets/matt-hero.jpg";
 import bgHero from "@/assets/bg-hero.jpg";
 import mattLifestyle from "@/assets/matt-lifestyle.jpg";
-import homeLuxury from "@/assets/home-luxury.jpg";
+import stockCouple from "@/assets/stock-couple-deal.jpg";
+import stockHandshake from "@/assets/stock-handshake.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -237,14 +238,12 @@ function HomePage() {
       <section className="section-light">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
           <div className="lg:col-span-6">
-            <div className="overflow-hidden rounded-sm">
+            <div className="overflow-hidden rounded-sm bg-neutral-100">
               <img
                 src={mattLifestyle}
-                alt="Matt with clients in their new home"
-                width={1600}
-                height={1100}
+                alt="Matt Arana, The Mortgage Rockstar"
                 loading="lazy"
-                className="aspect-[4/3] w-full object-cover"
+                className="h-auto w-full object-contain"
               />
             </div>
           </div>
@@ -341,7 +340,7 @@ function HomePage() {
           aria-hidden
           className="absolute inset-0 -z-10 opacity-20"
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(10,11,14,0.95), rgba(10,11,14,0.5)), url(${homeLuxury})`,
+            backgroundImage: `linear-gradient(to right, rgba(10,11,14,0.92), rgba(10,11,14,0.6)), url(${stockHandshake})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
