@@ -499,7 +499,7 @@ const scenarios = [
     label: "I need a jumbo loan",
     headline: "Jumbo without the institutional distance.",
     body: "From $1M to $5M+, we run a private-banking process without a private-banking minimum. Multiple jumbo investors, structured exceptions, and white-glove communication from list price to keys.",
-    solutions: ["10% down up to $3M", "Interest-only structures", "Asset-based qualifying"],
+    solutions: ["10% down up to $3M", "Flexible payment structures", "Asset-based qualifying"],
   },
   {
     id: "first",
@@ -623,7 +623,7 @@ const programs = [
     tag: "Premium",
     down: "10% down",
     best: "Buyers from $1M to $5M+",
-    features: ["Up to $5M financing", "Interest-only available", "Asset-based qualifying"],
+    features: ["Up to $5M financing", "Flexible payment options", "Asset-based qualifying"],
     featured: true,
   },
   {
