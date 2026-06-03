@@ -28,7 +28,7 @@ const programs = [
     icon: Home,
     name: "Conventional",
     tag: "The fundamentals, done right.",
-    body: "Smart structure for the long game. Fixed and adjustable terms designed around your real timeline — not just the lowest sticker rate.",
+    body: "Smart structure for the long game. Fixed and adjustable terms designed around your real timeline — not just the flashiest offer.",
     points: ["Fixed & ARM options", "Down payments from 3%", "Strategic refi positioning"],
   },
   {

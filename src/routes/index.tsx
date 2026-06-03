@@ -72,14 +72,15 @@ function StrategyHero() {
   const [income, setIncome] = useState(120000);
   const [down, setDown] = useState(60000);
   const [debts, setDebts] = useState(600);
-  const [rate, setRate] = useState(6.5);
   const [term, setTerm] = useState(30);
 
   const { maxHome, monthly, loanAmount } = useMemo(() => {
     const monthlyIncome = income / 12;
     // ~43% DTI target including new housing payment & existing debts
     const maxHousing = Math.max(0, monthlyIncome * 0.43 - debts);
-    const r = rate / 100 / 12;
+    // Internal financing assumption used only to estimate loan sizing.
+    // Indicative only — never shown to the user.
+    const r = 0.065 / 12;
     const n = term * 12;
     // assume ~25% of payment goes to taxes/insurance/PMI
     const pAndI = maxHousing * 0.75;
@@ -91,7 +92,7 @@ function StrategyHero() {
       monthly: monthlyPayment,
       loanAmount: Math.round(loan / 1000) * 1000,
     };
-  }, [income, down, debts, rate, term]);
+  }, [income, down, debts, term]);
 
   return (
     <section className="relative isolate overflow-hidden pt-28 lg:pt-32">
@@ -186,18 +187,7 @@ function StrategyHero() {
                   format={(n) => `${currency(n)} / mo`}
                   onChange={setDebts}
                 />
-                <div className="grid grid-cols-2 gap-4">
-                  <SliderField
-                    label="Rate"
-                    value={rate}
-                    min={3}
-                    max={9}
-                    step={0.125}
-                    format={(n) => `${n.toFixed(3)}%`}
-                    onChange={setRate}
-                    compact
-                  />
-                  <div>
+                <div>
                     <label className="text-[11px] uppercase tracking-wider text-muted-foreground">
                       Term
                     </label>
@@ -217,7 +207,6 @@ function StrategyHero() {
                       ))}
                     </div>
                   </div>
-                </div>
               </div>
 
               <div className="grid grid-cols-3 gap-px border-t border-border bg-border">
@@ -309,7 +298,7 @@ const paths = [
     tag: "Path 02",
     title: "Refinance",
     body: "Lower the payment, shorten the term, or pull equity for the next move with a clear breakeven plan.",
-    bullets: ["Rate & term analysis", "Cash-out strategy", "True breakeven, not marketing math"],
+    bullets: ["Payment & term analysis", "Cash-out strategy", "True breakeven, not marketing math"],
   },
   {
     icon: PiggyBank,
@@ -510,7 +499,7 @@ const scenarios = [
     label: "I need a jumbo loan",
     headline: "Jumbo without the institutional distance.",
     body: "From $1M to $5M+, we run a private-banking process without a private-banking minimum. Multiple jumbo investors, structured exceptions, and white-glove communication from list price to keys.",
-    solutions: ["10% down up to $3M", "Interest-only structures", "Asset-based qualifying"],
+    solutions: ["10% down up to $3M", "Flexible payment structures", "Asset-based qualifying"],
   },
   {
     id: "first",
@@ -523,7 +512,7 @@ const scenarios = [
     id: "inv",
     label: "I own investment properties",
     headline: "Leverage that actually compounds.",
-    body: "Whether it's door #2 or door #20, we model the deal on cash-flow, refinance ladder, and tax strategy together — not just rate sheets.",
+    body: "Whether it's door #2 or door #20, we model the deal on cash-flow, refinance ladder, and tax strategy together — not a one-size-fits-all pitch.",
     solutions: ["DSCR no-doc", "Portfolio loans", "BRRRR-ready refis"],
   },
 ];
@@ -624,7 +613,6 @@ const programs = [
   {
     name: "Conventional",
     tag: "Most flexible",
-    rate: "From 6.25%",
     down: "3% down",
     best: "W-2 buyers, primary or second home",
     features: ["No PMI options >20% down", "Loan amounts to $766k", "Gift funds allowed"],
@@ -633,16 +621,14 @@ const programs = [
   {
     name: "Jumbo & Luxury",
     tag: "Premium",
-    rate: "From 6.50%",
     down: "10% down",
     best: "Buyers from $1M to $5M+",
-    features: ["Up to $5M financing", "Interest-only available", "Asset-based qualifying"],
+    features: ["Up to $5M financing", "Flexible payment options", "Asset-based qualifying"],
     featured: true,
   },
   {
     name: "DSCR / Investor",
     tag: "No tax returns",
-    rate: "From 7.25%",
     down: "20% down",
     best: "Rental income covers the payment",
     features: ["No personal income docs", "LLC vesting OK", "Short-term rentals allowed"],
@@ -651,7 +637,6 @@ const programs = [
   {
     name: "Bank Statement",
     tag: "Self-employed",
-    rate: "From 7.50%",
     down: "10% down",
     best: "1099, business owners, gig economy",
     features: ["12 or 24 mo statements", "P&L only available", "Up to $3M loans"],
@@ -697,10 +682,7 @@ function LoanPrograms() {
               )}
               <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.tag}</p>
               <h3 className="mt-3 font-display text-2xl uppercase text-foreground">{p.name}</h3>
-              <div className="mt-6 flex items-baseline gap-2">
-                <span className="font-display text-3xl text-foreground">{p.rate}</span>
-              </div>
-              <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{p.down}</p>
+              <p className="mt-6 font-display text-3xl text-foreground">{p.down}</p>
               <p className="mt-5 text-sm text-muted-foreground">{p.best}</p>
               <ul className="mt-6 space-y-2.5 border-t border-border pt-5">
                 {p.features.map((f) => (
@@ -932,7 +914,7 @@ function ClosingCTA() {
               A 30-minute call could save you 30 years of guessing.
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
-              No pressure, no rate pitch. Real numbers, real options, and a written plan you keep — whether we work together or not.
+              No pressure, no sales pitch. Real numbers, real options, and a written plan you keep — whether we work together or not.
             </p>
             <ul className="mt-8 space-y-3">
               {[

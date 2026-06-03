@@ -26,7 +26,7 @@ export const Route = createFileRoute("/education")({
 const pillars = [
   { icon: BookOpen, tag: "Mortgage 101", title: "Loan types explained without the jargon", read: "6 min read" },
   { icon: Compass, tag: "Buyer Guidance", title: "What to do before you fall in love with a house", read: "5 min read" },
-  { icon: BarChart3, tag: "Market Insight", title: "Reading rate movement (and what it actually means)", read: "8 min read" },
+  { icon: BarChart3, tag: "Market Insight", title: "Reading the housing market (and what it actually means)", read: "8 min read" },
   { icon: TrendingUp, tag: "Wealth Building", title: "Why homeownership is still the cleanest path to wealth", read: "9 min read" },
   { icon: BookOpen, tag: "Mortgage 101", title: "Pre-approval vs. pre-qualification: get the right one", read: "4 min read" },
   { icon: Compass, tag: "Buyer Guidance", title: "The 5 most expensive mistakes first-time buyers make", read: "7 min read" },
