@@ -340,30 +340,17 @@ function ChoosePath() {
         <div className="mt-14 grid gap-4 lg:grid-cols-4">
           {paths.map((p, i) => {
             const Icon = p.icon;
-            const isActive = active === i;
             return (
               <button
                 key={p.title}
                 onClick={() => setActive(i)}
-                className={`group relative flex flex-col items-start gap-6 overflow-hidden rounded-md border p-7 text-left transition-all duration-300 ${
-                  isActive
-                    ? "-translate-y-1 border-[var(--brand-orange)] bg-background shadow-[0_30px_60px_-25px_var(--brand-orange)]"
-                    : "border-border bg-background/40 hover:-translate-y-1 hover:border-foreground/40"
-                }`}
+                className="group relative flex flex-col items-start gap-6 overflow-hidden rounded-md border border-[var(--brand-orange)] bg-background p-7 text-left shadow-[0_30px_60px_-25px_var(--brand-orange)] transition-all duration-300 -translate-y-1 hover:-translate-y-1"
               >
                 <div className="flex w-full items-center justify-between">
                   <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.tag}</span>
-                  <ArrowUpRight
-                    className={`h-4 w-4 transition-colors ${
-                      isActive ? "text-[var(--brand-orange)]" : "text-muted-foreground group-hover:text-foreground"
-                    }`}
-                  />
+                  <ArrowUpRight className="h-4 w-4 text-[var(--brand-orange)] transition-colors" />
                 </div>
-                <span
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-sm border ${
-                    isActive ? "border-[var(--brand-orange)] text-[var(--brand-orange)]" : "border-border text-foreground"
-                  }`}
-                >
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-sm border border-[var(--brand-orange)] text-[var(--brand-orange)]">
                   <Icon className="h-5 w-5" />
                 </span>
                 <h3 className="font-display text-2xl uppercase leading-tight text-foreground">{p.title}</h3>
