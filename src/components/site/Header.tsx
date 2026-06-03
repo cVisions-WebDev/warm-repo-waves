@@ -52,7 +52,7 @@ export function Header() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand-orange)] px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_var(--brand-orange)]"
           >
-            Talk to Matt
+            Talk to Our Team
           </Link>
         </div>
 
@@ -86,7 +86,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-2 block rounded-sm bg-[var(--brand-orange)] px-3 py-3 text-center text-sm font-bold uppercase tracking-wider text-background"
             >
-              Talk to Matt
+              Talk to Our Team
             </Link>
           </div>
         </div>
