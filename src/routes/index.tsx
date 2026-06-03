@@ -1,39 +1,44 @@
+import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Star,
-  Crown,
-  GraduationCap,
-  Wrench,
   ArrowRight,
-  Quote,
-  PlayCircle,
+  ArrowUpRight,
+  Calculator,
+  Calendar,
+  CheckCircle2,
+  Compass,
+  FileText,
+  GraduationCap,
+  Home,
+  Key,
+  PiggyBank,
+  Search,
+  Shield,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Video,
+  Wallet,
 } from "lucide-react";
-import Autoplay from "embla-carousel-autoplay";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import mattHero from "@/assets/matt-hero.jpg";
-import bgHero from "@/assets/bg-hero.jpg";
 import mattLifestyle from "@/assets/matt-lifestyle.jpg";
+import stockCouple from "@/assets/stock-couple-deal.jpg";
+import stockAgent from "@/assets/stock-agent-home.jpg";
 import stockHandshake from "@/assets/stock-handshake.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "The Mortgage Rockstar™ — Clarity. Strategy. Results." },
+      { title: "Mortgage Rockstar™ — Know What You Can Afford Before You Shop." },
       {
         name: "description",
         content:
-          "Mortgage guidance with Rockstar confidence. Education-first advising for serious buyers, investors, and real estate partners across MO, IL, FL.",
+          "Run the numbers, choose your path, and get a personalized mortgage strategy. Premium lending guidance across MO, IL, and FL.",
       },
-      { property: "og:title", content: "The Mortgage Rockstar™" },
+      { property: "og:title", content: "Mortgage Rockstar™ — Strategy First Lending" },
       {
         property: "og:description",
-        content: "Clarity. Strategy. Results. Mortgage advising at a higher level.",
+        content:
+          "Affordability calculator, personalized paths, and a complete mortgage roadmap. Built for buyers, investors, and the self-employed.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -42,371 +47,994 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const pillars = [
-  {
-    icon: Star,
-    title: "Rockstar Expertise",
-    body: "Products, underwriting, the nuances most lenders never bother to learn. Clients feel the depth in the first conversation.",
-  },
-  {
-    icon: Crown,
-    title: "VIP Client Experience",
-    body: "Personal attention, proactive communication, and a level of service that reflects how significant the decision actually is.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education Before Transaction",
-    body: "Understand first, then act. Complex concepts simplified — so you move forward knowing exactly what you're building and why.",
-  },
-  {
-    icon: Wrench,
-    title: "Solutions Others Miss",
-    body: "Complex income, unconventional scenarios, deals other lenders walk away from. We turn over every stone until it works.",
-  },
-];
-
-const services = [
-  { name: "Conventional", desc: "Smart structure for the long game." },
-  { name: "Jumbo & Luxury", desc: "$1M+ financing without the institutional distance." },
-  { name: "VA Loans", desc: "Expert guidance for veterans and active-duty buyers." },
-  { name: "Investor / DSCR", desc: "Leverage and scale for serious investors." },
-  { name: "First-Time Buyer", desc: "Step-by-step clarity for your first move." },
-  { name: "Complex Income", desc: "Self-employed, 1099, or non-traditional? We find the way." },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Matt looked at our situation and saw a deal where three other lenders saw a wall. We closed in 19 days.",
-    name: "Daniel & Priya R.",
-    detail: "Self-employed jumbo buyers · St. Louis",
-  },
-  {
-    quote:
-      "He educated us through every step. We didn't just get a mortgage — we got a strategy for the next ten years.",
-    name: "Marcus T.",
-    detail: "First-time buyer · Chicago",
-  },
-  {
-    quote:
-      "Two other lenders told me my income was too complicated. Matt structured it, closed it, and made it look easy.",
-    name: "Alicia V.",
-    detail: "1099 contractor · Tampa",
-  },
-  {
-    quote:
-      "DSCR financing on three doors in under a month. Matt is the only call I make on the lending side now.",
-    name: "Jordan K.",
-    detail: "Real estate investor · St. Charles",
-  },
-];
+const currency = (n: number) =>
+  n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 
 function HomePage() {
   return (
     <div>
-      {/* HERO */}
-      <section
-        className="relative isolate overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(10,11,14,0.65), rgba(10,11,14,0.9) 60%, var(--background)), url(${bgHero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:pb-32 lg:pt-24">
-          <div className="fade-up lg:col-span-7 lg:pt-10">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-orange)]" />
-              Powered by Cornerstone First
-            </span>
-            <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[88px]">
-              Mortgage advising
-              <br />
-              with <span className="text-[var(--brand-orange)]">Rockstar</span>
-              <br />
-              confidence.
-            </h1>
-            <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-muted-foreground">
-              Talk to your lender before you fall in love with a house. Fall in
-              love with the numbers first. The smartest buyers always do.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-15px_var(--brand-orange)]"
-              >
-                Get Your Strategy Call
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/education"
-                className="inline-flex items-center gap-2 rounded-sm border border-border bg-background/40 px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-foreground backdrop-blur transition-colors hover:border-foreground"
-              >
-                <PlayCircle className="h-4 w-4" />
-                Start Learning
-              </Link>
-            </div>
+      <StrategyHero />
+      <ChoosePath />
+      <Roadmap />
+      <Metrics />
+      <Scenarios />
+      <LoanPrograms />
+      <EducationCenter />
+      <BeforeAfter />
+      <MeetMatt />
+      <ClosingCTA />
+    </div>
+  );
+}
 
-            <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-border pt-8">
-              {[
-                { k: "25+", v: "Years figuring it out" },
-                { k: "3", v: "States licensed" },
-                { k: "Top 5", v: "GE Capital producer" },
-              ].map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-3xl text-foreground sm:text-4xl">{s.k}</dt>
-                  <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+/* ---------------- Section 1: Strategy Hero with Calculator ---------------- */
+function StrategyHero() {
+  const [income, setIncome] = useState(120000);
+  const [down, setDown] = useState(60000);
+  const [debts, setDebts] = useState(600);
+  const [rate, setRate] = useState(6.5);
+  const [term, setTerm] = useState(30);
 
-          <div className="relative lg:col-span-5">
-            <div className="absolute -inset-4 -z-10 rounded-sm bg-gradient-to-br from-[var(--brand-blue)]/30 via-transparent to-[var(--brand-orange)]/30 blur-2xl" />
-            <div className="relative overflow-hidden rounded-sm border border-border">
-              <img
-                src={mattHero}
-                alt="Matt Arana, The Mortgage Rockstar"
-                width={1080}
-                height={1920}
-                className="aspect-[3/4] w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-background via-background/70 to-transparent p-5">
-                <div>
-                  <p className="font-display text-lg uppercase tracking-wide text-foreground">Matt Arana</p>
-                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--brand-orange)]">
-                    The Mortgage Rockstar™
-                  </p>
-                </div>
-                <span className="rounded-sm border border-border bg-background/70 px-2 py-1 text-[10px] uppercase tracking-wider text-muted-foreground backdrop-blur">
-                  MO · IL · FL
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  const { maxHome, monthly, loanAmount } = useMemo(() => {
+    const monthlyIncome = income / 12;
+    // ~43% DTI target including new housing payment & existing debts
+    const maxHousing = Math.max(0, monthlyIncome * 0.43 - debts);
+    const r = rate / 100 / 12;
+    const n = term * 12;
+    // assume ~25% of payment goes to taxes/insurance/PMI
+    const pAndI = maxHousing * 0.75;
+    const loan = r > 0 ? (pAndI * (1 - Math.pow(1 + r, -n))) / r : pAndI * n;
+    const home = Math.max(0, loan + down);
+    const monthlyPayment = pAndI > 0 ? Math.round(maxHousing) : 0;
+    return {
+      maxHome: Math.round(home / 1000) * 1000,
+      monthly: monthlyPayment,
+      loanAmount: Math.round(loan / 1000) * 1000,
+    };
+  }, [income, down, debts, rate, term]);
 
-      {/* MARQUEE-STYLE STATEMENT */}
-      <section className="border-y border-border bg-[var(--surface)]">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
-          <p className="font-display text-2xl uppercase tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-            <span className="text-[var(--brand-orange)]">New town,</span>{" "}
-            <span className="text-muted-foreground">old vibe.</span>{" "}
-            Institutional expertise without the institutional distance.
+  return (
+    <section className="relative isolate overflow-hidden pt-28 lg:pt-32">
+      {/* ambient backdrop */}
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_0%,oklch(0.62_0.22_255/0.22),transparent_60%),radial-gradient(60%_50%_at_10%_20%,oklch(0.72_0.21_45/0.18),transparent_60%)]" />
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+      </div>
+
+      <div className="mx-auto grid max-w-7xl gap-14 px-4 pb-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-28">
+        <div className="lg:col-span-6 lg:pt-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
+            <Sparkles className="h-3 w-3 text-[var(--brand-orange)]" />
+            Strategy-first mortgage advising
+          </span>
+          <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-[76px]">
+            Know what
+            <br />
+            you can afford
+            <br />
+            <span className="text-[var(--brand-orange)]">before</span> you shop.
+          </h1>
+          <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-muted-foreground">
+            Run the numbers in seconds. See your true buying power, your monthly
+            payment, and the exact next step — all before you ever talk to a
+            realtor.
           </p>
-        </div>
-      </section>
 
-      {/* PILLARS */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-              What we stand on
-            </p>
-            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-              Built on four
-              <br />
-              non-negotiables.
-            </h2>
-            <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
-              Most lenders lead with rates. We lead with something harder to
-              replicate — a way of working that has defined Matt's career long
-              before it defined the brand.
-            </p>
-          </div>
-          <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:col-span-8">
-            {pillars.map(({ icon: Icon, title, body }) => (
-              <div
-                key={title}
-                className="group flex flex-col gap-5 bg-background p-7 transition-colors hover:bg-[var(--surface)]"
-              >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-border bg-[var(--surface)] text-[var(--brand-orange)] transition-colors group-hover:border-[var(--brand-orange)]">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="font-display text-xl uppercase tracking-tight text-foreground">{title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
+          <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
+            {[
+              { k: "60s", v: "Affordability check" },
+              { k: "0$", v: "No credit pull" },
+              { k: "24h", v: "Personal strategy reply" },
+            ].map((s) => (
+              <div key={s.v} className="rounded-sm border border-border bg-background/40 p-4 backdrop-blur">
+                <p className="font-display text-2xl text-foreground">{s.k}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{s.v}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ABOUT TEASER — light section for clarity contrast */}
-      <section className="section-light">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
-          <div className="lg:col-span-6">
-            <div className="overflow-hidden rounded-sm bg-neutral-100">
-              <img
-                src={mattLifestyle}
-                alt="Matt Arana, The Mortgage Rockstar"
-                loading="lazy"
-                className="h-auto w-full object-contain"
-              />
+        {/* Calculator card */}
+        <div className="lg:col-span-6">
+          <div className="relative">
+            <div className="absolute -inset-2 -z-10 rounded-md bg-gradient-to-br from-[var(--brand-blue)]/30 via-transparent to-[var(--brand-orange)]/30 blur-2xl" />
+            <div className="overflow-hidden rounded-md border border-border bg-[var(--surface)]/95 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur">
+              <div className="flex items-center justify-between border-b border-border px-6 py-4">
+                <div className="flex items-center gap-2">
+                  <Calculator className="h-4 w-4 text-[var(--brand-orange)]" />
+                  <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                    Affordability Engine
+                  </p>
+                </div>
+                <span className="rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">
+                  Live
+                </span>
+              </div>
+
+              <div className="grid gap-5 p-6 sm:p-7">
+                <SliderField
+                  label="Household income"
+                  value={income}
+                  min={40000}
+                  max={750000}
+                  step={5000}
+                  format={currency}
+                  onChange={setIncome}
+                />
+                <SliderField
+                  label="Down payment"
+                  value={down}
+                  min={0}
+                  max={500000}
+                  step={5000}
+                  format={currency}
+                  onChange={setDown}
+                />
+                <SliderField
+                  label="Monthly debts"
+                  value={debts}
+                  min={0}
+                  max={5000}
+                  step={50}
+                  format={(n) => `${currency(n)} / mo`}
+                  onChange={setDebts}
+                />
+                <div className="grid grid-cols-2 gap-4">
+                  <SliderField
+                    label="Rate"
+                    value={rate}
+                    min={3}
+                    max={9}
+                    step={0.125}
+                    format={(n) => `${n.toFixed(3)}%`}
+                    onChange={setRate}
+                    compact
+                  />
+                  <div>
+                    <label className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                      Term
+                    </label>
+                    <div className="mt-2 grid grid-cols-3 gap-1 rounded-sm border border-border p-1">
+                      {[15, 20, 30].map((t) => (
+                        <button
+                          key={t}
+                          onClick={() => setTerm(t)}
+                          className={`rounded-sm py-2 text-xs font-semibold transition-colors ${
+                            term === t
+                              ? "bg-[var(--brand-orange)] text-background"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          {t}y
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-px border-t border-border bg-border">
+                <Stat label="Max home price" value={currency(maxHome)} accent />
+                <Stat label="Est. monthly" value={currency(monthly)} />
+                <Stat label="Loan amount" value={currency(loanAmount)} />
+              </div>
+
+              <div className="flex flex-col gap-3 border-t border-border p-6 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  Indicative only. Get a real pre-approval letter in under 24h.
+                </p>
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-5 py-3 text-xs font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
+                >
+                  Lock in my number
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:pt-6">
-            <p className="accent-rule text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-              About Matt
-            </p>
-            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] sm:text-5xl">
-              The musician
-              <br />
-              who learned
-              <br />
-              to solve.
-            </h2>
-            <p className="mt-6 leading-relaxed text-neutral-700">
-              Touring musician with a record deal. Top-5 producer at GE Capital.
-              Mortgage educator who came to believe the most important financial
-              transaction in most people's lives deserves more than a call
-              center and a chatbot.
-            </p>
-            <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {[
-                "Show up",
-                "Tell the truth",
-                "Outwork expectations",
-                "Never stop learning",
-              ].map((v) => (
-                <li
-                  key={v}
-                  className="flex items-center gap-3 border-l-2 border-[var(--brand-orange)] bg-neutral-100 px-4 py-3 text-sm font-medium text-neutral-900"
-                >
-                  {v}
-                </li>
-              ))}
-            </ul>
-            <Link
-              to="/about"
-              className="mt-9 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-neutral-900 underline-offset-8 hover:underline"
-            >
-              Read the full story <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* SERVICES SNAPSHOT */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+function SliderField({
+  label,
+  value,
+  min,
+  max,
+  step,
+  format,
+  onChange,
+  compact = false,
+}: {
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  format: (n: number) => string;
+  onChange: (n: number) => void;
+  compact?: boolean;
+}) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between">
+        <label className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</label>
+        <span className={`font-display ${compact ? "text-lg" : "text-xl"} text-foreground`}>{format(value)}</span>
+      </div>
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="mt-3 h-1 w-full cursor-pointer appearance-none rounded-full bg-border accent-[var(--brand-orange)]"
+      />
+    </div>
+  );
+}
+
+function Stat({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
+  return (
+    <div className={`bg-[var(--surface)] p-5 ${accent ? "ring-1 ring-[var(--brand-orange)]/40" : ""}`}>
+      <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
+      <p className={`mt-2 font-display text-xl ${accent ? "text-[var(--brand-orange)]" : "text-foreground"} sm:text-2xl`}>
+        {value}
+      </p>
+    </div>
+  );
+}
+
+/* ---------------- Section 2: Choose Your Path ---------------- */
+const paths = [
+  {
+    icon: Key,
+    tag: "Path 01",
+    title: "First-Time Buyer",
+    body: "From down-payment strategy to closing day — a step-by-step plan so nothing surprises you.",
+    bullets: ["Down payment as low as 3%", "Credit guidance included", "Side-by-side program comparison"],
+  },
+  {
+    icon: TrendingUp,
+    tag: "Path 02",
+    title: "Refinance",
+    body: "Lower the payment, shorten the term, or pull equity for the next move with a clear breakeven plan.",
+    bullets: ["Rate & term analysis", "Cash-out strategy", "True breakeven, not marketing math"],
+  },
+  {
+    icon: PiggyBank,
+    tag: "Path 03",
+    title: "Investor",
+    body: "DSCR, portfolio loans, and conventional financing structured to actually scale.",
+    bullets: ["No tax-return DSCR", "Portfolio leverage modeling", "1–10 unit specialists"],
+  },
+  {
+    icon: Wallet,
+    tag: "Path 04",
+    title: "Self-Employed",
+    body: "1099, K-1, bank-statement, P&L — we structure the income most lenders walk away from.",
+    bullets: ["Bank-statement loans", "K-1 add-backs done right", "Complex income specialists"],
+  },
+];
+
+function ChoosePath() {
+  const [active, setActive] = useState(0);
+  const A = paths[active];
+
+  return (
+    <section className="border-y border-border bg-[var(--surface)]">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-              Loan Programs
+              Choose your path
             </p>
             <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-              You have more options than you think.
+              Different goals deserve different playbooks.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+            Pick the path closest to where you are right now. Every track unlocks a tailored journey, programs, and resources.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-4 lg:grid-cols-4">
+          {paths.map((p, i) => {
+            const Icon = p.icon;
+            const isActive = active === i;
+            return (
+              <button
+                key={p.title}
+                onClick={() => setActive(i)}
+                className={`group relative flex flex-col items-start gap-6 overflow-hidden rounded-md border p-7 text-left transition-all duration-300 ${
+                  isActive
+                    ? "-translate-y-1 border-[var(--brand-orange)] bg-background shadow-[0_30px_60px_-25px_var(--brand-orange)]"
+                    : "border-border bg-background/40 hover:-translate-y-1 hover:border-foreground/40"
+                }`}
+              >
+                <div className="flex w-full items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.tag}</span>
+                  <ArrowUpRight
+                    className={`h-4 w-4 transition-colors ${
+                      isActive ? "text-[var(--brand-orange)]" : "text-muted-foreground group-hover:text-foreground"
+                    }`}
+                  />
+                </div>
+                <span
+                  className={`inline-flex h-12 w-12 items-center justify-center rounded-sm border ${
+                    isActive ? "border-[var(--brand-orange)] text-[var(--brand-orange)]" : "border-border text-foreground"
+                  }`}
+                >
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="font-display text-2xl uppercase leading-tight text-foreground">{p.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-10 grid gap-10 rounded-md border border-border bg-background p-8 lg:grid-cols-12 lg:p-12">
+          <div className="lg:col-span-7">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+              {A.tag} · Customized journey
+            </p>
+            <h3 className="mt-3 font-display text-3xl uppercase leading-tight text-foreground sm:text-4xl">
+              {A.title} playbook
+            </h3>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">{A.body}</p>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+              {A.bullets.map((b) => (
+                <li key={b} className="flex items-start gap-3 text-sm text-foreground">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-[var(--brand-orange)]" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col justify-between gap-6 lg:col-span-5">
+            <Link
+              to="/services"
+              className="group inline-flex items-center justify-between gap-2 rounded-sm border border-border bg-[var(--surface)] px-5 py-4 text-sm font-semibold text-foreground hover:border-[var(--brand-orange)]"
+            >
+              Explore {A.title} programs
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center justify-between gap-2 rounded-sm bg-[var(--brand-orange)] px-5 py-4 text-sm font-bold uppercase tracking-wider text-background hover:-translate-y-0.5 transition-transform"
+            >
+              Start my {A.title.split(" ")[0]} plan
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 3: Roadmap ---------------- */
+const roadmap = [
+  { icon: Compass, label: "Discovery", body: "Goals, timeline, comfort zone — we listen first." },
+  { icon: Sparkles, label: "Strategy", body: "Custom plan, real numbers, side-by-side options." },
+  { icon: Shield, label: "Pre-Approval", body: "Underwriter-reviewed letter that sellers respect." },
+  { icon: Search, label: "Home Search", body: "Shop with confidence — your agent has a partner on the financing side." },
+  { icon: Key, label: "Closing", body: "Smooth, predictable, and on the day we promised." },
+];
+
+function Roadmap() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+      <div className="max-w-2xl">
+        <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+          The mortgage roadmap
+        </p>
+        <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+          Five steps. Zero surprises.
+        </h2>
+        <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
+          Most buyers learn the process by stumbling through it. We map it for you up front so every milestone has a date and a deliverable.
+        </p>
+      </div>
+
+      <div className="relative mt-16">
+        <div className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
+        <ol className="grid gap-6 lg:grid-cols-5">
+          {roadmap.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <li key={s.label} className="relative">
+                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background text-foreground">
+                  <Icon className="h-5 w-5 text-[var(--brand-orange)]" />
+                </div>
+                <p className="mt-5 font-display text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                  Step 0{i + 1}
+                </p>
+                <p className="mt-2 font-display text-xl uppercase text-foreground">{s.label}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 4: Metrics ---------------- */
+const metrics = [
+  { k: "2,400+", v: "Families helped" },
+  { k: "$1.1B", v: "Loans closed" },
+  { k: "25", v: "Years experience" },
+  { k: "21 days", v: "Avg. closing time" },
+];
+
+function Metrics() {
+  return (
+    <section className="border-y border-border bg-[var(--surface)]">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden border-x border-border bg-border lg:grid-cols-4">
+        {metrics.map((m) => (
+          <div key={m.v} className="group relative bg-[var(--surface)] p-8 transition-colors hover:bg-background sm:p-10">
+            <p className="font-display text-5xl uppercase text-foreground sm:text-6xl">{m.k}</p>
+            <p className="mt-4 text-xs uppercase tracking-[0.22em] text-muted-foreground">{m.v}</p>
+            <div className="absolute inset-x-8 bottom-6 h-px scale-x-0 bg-[var(--brand-orange)] transition-transform duration-500 group-hover:scale-x-100" />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 5: Interactive Scenarios ---------------- */
+const scenarios = [
+  {
+    id: "se",
+    label: "I am self-employed",
+    headline: "We speak 1099, K-1, and bank-statement fluently.",
+    body: "Most lenders flatten your income onto a 1040 line and call it a day. We structure 24 months of bank statements, add-backs, and depreciation correctly so you qualify for the loan your business actually supports.",
+    solutions: ["Bank-statement loans", "P&L-only programs", "Asset-depletion qualifying"],
+  },
+  {
+    id: "jumbo",
+    label: "I need a jumbo loan",
+    headline: "Jumbo without the institutional distance.",
+    body: "From $1M to $5M+, we run a private-banking process without a private-banking minimum. Multiple jumbo investors, structured exceptions, and white-glove communication from list price to keys.",
+    solutions: ["10% down up to $3M", "Interest-only structures", "Asset-based qualifying"],
+  },
+  {
+    id: "first",
+    label: "I am buying my first home",
+    headline: "Confidence on day one, not by the closing table.",
+    body: "We rebuild the process around education first — you'll understand every number, every disclosure, and every option before you spend a dollar. Down-payment assistance, credit coaching, and program comparison included.",
+    solutions: ["3% conventional", "FHA & VA", "Down-payment assistance"],
+  },
+  {
+    id: "inv",
+    label: "I own investment properties",
+    headline: "Leverage that actually compounds.",
+    body: "Whether it's door #2 or door #20, we model the deal on cash-flow, refinance ladder, and tax strategy together — not just rate sheets.",
+    solutions: ["DSCR no-doc", "Portfolio loans", "BRRRR-ready refis"],
+  },
+];
+
+function Scenarios() {
+  const [active, setActive] = useState("se");
+  const S = scenarios.find((s) => s.id === active)!;
+
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="lg:col-span-5">
+          <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            Scenario builder
+          </p>
+          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+            Tell us where you stand.
+          </h2>
+          <p className="mt-5 max-w-md leading-relaxed text-muted-foreground">
+            Pick the scenario closest to your reality. We'll show the solutions other lenders said no to.
+          </p>
+          <div className="mt-8 flex flex-col gap-2">
+            {scenarios.map((s) => {
+              const isActive = active === s.id;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setActive(s.id)}
+                  className={`group flex items-center justify-between gap-4 rounded-sm border px-5 py-4 text-left transition-all ${
+                    isActive
+                      ? "border-[var(--brand-orange)] bg-[var(--surface)]"
+                      : "border-border bg-transparent hover:border-foreground/40"
+                  }`}
+                >
+                  <span className={`text-sm font-semibold ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                    {s.label}
+                  </span>
+                  <ArrowRight
+                    className={`h-4 w-4 transition-all ${
+                      isActive
+                        ? "text-[var(--brand-orange)] translate-x-0"
+                        : "text-muted-foreground -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="lg:col-span-7">
+          <div className="relative h-full overflow-hidden rounded-md border border-border bg-gradient-to-br from-[var(--surface)] to-background p-8 lg:p-12">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[var(--brand-orange)]/10 blur-3xl"
+            />
+            <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+              Custom solution
+            </p>
+            <h3 className="mt-4 font-display text-3xl uppercase leading-[1.05] text-foreground sm:text-4xl">
+              {S.headline}
+            </h3>
+            <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">{S.body}</p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {S.solutions.map((sol) => (
+                <div
+                  key={sol}
+                  className="rounded-sm border border-border bg-background/60 p-4 text-sm font-medium text-foreground"
+                >
+                  {sol}
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand-orange)] px-5 py-3 text-xs font-bold uppercase tracking-wider text-background hover:-translate-y-0.5 transition-transform"
+              >
+                Get my custom structure
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-sm border border-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-foreground hover:border-foreground"
+              >
+                See related programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 6: Loan Programs Comparison ---------------- */
+const programs = [
+  {
+    name: "Conventional",
+    tag: "Most flexible",
+    rate: "From 6.25%",
+    down: "3% down",
+    best: "W-2 buyers, primary or second home",
+    features: ["No PMI options >20% down", "Loan amounts to $766k", "Gift funds allowed"],
+    featured: false,
+  },
+  {
+    name: "Jumbo & Luxury",
+    tag: "Premium",
+    rate: "From 6.50%",
+    down: "10% down",
+    best: "Buyers from $1M to $5M+",
+    features: ["Up to $5M financing", "Interest-only available", "Asset-based qualifying"],
+    featured: true,
+  },
+  {
+    name: "DSCR / Investor",
+    tag: "No tax returns",
+    rate: "From 7.25%",
+    down: "20% down",
+    best: "Rental income covers the payment",
+    features: ["No personal income docs", "LLC vesting OK", "Short-term rentals allowed"],
+    featured: false,
+  },
+  {
+    name: "Bank Statement",
+    tag: "Self-employed",
+    rate: "From 7.50%",
+    down: "10% down",
+    best: "1099, business owners, gig economy",
+    features: ["12 or 24 mo statements", "P&L only available", "Up to $3M loans"],
+    featured: false,
+  },
+];
+
+function LoanPrograms() {
+  return (
+    <section className="border-y border-border bg-[var(--surface)]">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+              Loan programs
+            </p>
+            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+              Compare. Then choose.
             </h2>
           </div>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand-orange)]"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-orange)]"
           >
-            See all programs <ArrowRight className="h-4 w-4" />
+            All 14 programs <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <Link
-              key={s.name}
-              to="/services"
-              className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-border bg-[var(--surface)] p-7 transition-all hover:-translate-y-1 hover:border-[var(--brand-orange)]"
+        <div className="mt-14 grid gap-5 lg:grid-cols-4">
+          {programs.map((p) => (
+            <div
+              key={p.name}
+              className={`relative flex flex-col rounded-md border p-7 transition-transform hover:-translate-y-1 ${
+                p.featured
+                  ? "border-[var(--brand-orange)] bg-background shadow-[0_30px_60px_-25px_var(--brand-orange)]"
+                  : "border-border bg-background/40"
+              }`}
             >
-              <span className="font-display text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                0{i + 1}
-              </span>
-              <div className="mt-12">
-                <h3 className="font-display text-2xl uppercase leading-tight text-foreground">
-                  {s.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              {p.featured && (
+                <span className="absolute -top-3 left-7 rounded-full bg-[var(--brand-orange)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-background">
+                  Signature
+                </span>
+              )}
+              <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.tag}</p>
+              <h3 className="mt-3 font-display text-2xl uppercase text-foreground">{p.name}</h3>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-display text-3xl text-foreground">{p.rate}</span>
               </div>
-              <span className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-orange)] opacity-0 transition-opacity group-hover:opacity-100">
-                Learn more <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
+              <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{p.down}</p>
+              <p className="mt-5 text-sm text-muted-foreground">{p.best}</p>
+              <ul className="mt-6 space-y-2.5 border-t border-border pt-5">
+                {p.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm text-foreground">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-[var(--brand-orange)]" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/contact"
+                className={`mt-7 inline-flex items-center justify-center gap-2 rounded-sm px-4 py-3 text-xs font-bold uppercase tracking-wider transition-transform hover:-translate-y-0.5 ${
+                  p.featured
+                    ? "bg-[var(--brand-orange)] text-background"
+                    : "border border-border text-foreground hover:border-foreground"
+                }`}
+              >
+                Get my quote
+              </Link>
+            </div>
           ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* TESTIMONIAL */}
-      <section
-        className="relative overflow-hidden border-y border-border bg-[var(--surface)]"
-      >
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 opacity-20"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(10,11,14,0.92), rgba(10,11,14,0.6)), url(${stockHandshake})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-          <Quote className="h-10 w-10 text-[var(--brand-orange)]" />
-          <Carousel
-            opts={{ align: "start", loop: true }}
-            plugins={[Autoplay({ delay: 6000, stopOnInteraction: true })]}
-            className="mt-6"
+/* ---------------- Section 7: Education Center ---------------- */
+const resources = [
+  { icon: FileText, kind: "Guide", title: "The 2026 First-Time Buyer Playbook", meta: "12 min read" },
+  { icon: Calculator, kind: "Calculator", title: "Rent vs. Buy true breakeven", meta: "Interactive" },
+  { icon: Video, kind: "Video", title: "Self-employed income, decoded", meta: "8 min" },
+  { icon: GraduationCap, kind: "Course", title: "Mortgage 101 — six-part series", meta: "Free" },
+];
+
+function EducationCenter() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="max-w-2xl">
+          <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            Education center
+          </p>
+          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+            Sharpen the strategy before the signature.
+          </h2>
+        </div>
+        <Link
+          to="/education"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-orange)]"
+        >
+          Open the library <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+
+      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {resources.map((r) => {
+          const Icon = r.icon;
+          return (
+            <Link
+              key={r.title}
+              to="/education"
+              className="group flex flex-col gap-6 rounded-md border border-border bg-[var(--surface)] p-7 transition-all hover:-translate-y-1 hover:border-[var(--brand-orange)]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border text-[var(--brand-orange)]">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{r.kind}</span>
+              </div>
+              <h3 className="font-display text-lg uppercase leading-tight text-foreground">{r.title}</h3>
+              <div className="mt-auto flex items-center justify-between border-t border-border pt-4">
+                <span className="text-xs text-muted-foreground">{r.meta}</span>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-[var(--brand-orange)]" />
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 8: Before/After Case Studies ---------------- */
+const cases = [
+  {
+    image: stockCouple,
+    name: "Daniel & Priya R.",
+    detail: "Self-employed jumbo · St. Louis",
+    before: { label: "Denied by 3 lenders", sub: "Tax returns flagged income" },
+    after: { label: "Closed in 19 days", sub: "$1.4M jumbo, 10% down" },
+    quote: "Three other lenders saw a wall. Matt saw the structure.",
+  },
+  {
+    image: stockAgent,
+    name: "Sgt. Marcus T.",
+    detail: "VA buyer · Chicago",
+    before: { label: "$0 saved for closing", sub: "Couldn't time the market" },
+    after: { label: "$0 out of pocket", sub: "Full VA, seller-paid costs" },
+    quote: "He gave us a strategy, not a sales pitch.",
+  },
+  {
+    image: stockHandshake,
+    name: "Elena V.",
+    detail: "1099 investor · Tampa",
+    before: { label: "Stuck at 2 doors", sub: "Personal DTI maxed out" },
+    after: { label: "5 doors in 11 months", sub: "DSCR portfolio refi ladder" },
+    quote: "He's the only call I make on the lending side now.",
+  },
+];
+
+function BeforeAfter() {
+  return (
+    <section className="border-y border-border bg-[var(--surface)]">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+        <div className="max-w-2xl">
+          <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            Client wins
+          </p>
+          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+            Real before. Real after.
+          </h2>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {cases.map((c) => (
+            <article
+              key={c.name}
+              className="group overflow-hidden rounded-md border border-border bg-background transition-transform hover:-translate-y-1"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={c.image}
+                  alt={c.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+              </div>
+              <div className="grid grid-cols-2 gap-px bg-border">
+                <div className="bg-background p-5">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Before</p>
+                  <p className="mt-2 font-display text-base uppercase text-foreground">{c.before.label}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{c.before.sub}</p>
+                </div>
+                <div className="bg-background p-5">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--brand-orange)]">After</p>
+                  <p className="mt-2 font-display text-base uppercase text-foreground">{c.after.label}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{c.after.sub}</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm italic leading-relaxed text-foreground">"{c.quote}"</p>
+                <p className="mt-5 font-display text-sm uppercase tracking-wider text-foreground">{c.name}</p>
+                <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">{c.detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 9: Meet Matt ---------------- */
+function MeetMatt() {
+  return (
+    <section className="section-light">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
+        <div className="lg:col-span-5">
+          <div className="overflow-hidden rounded-md bg-neutral-100">
+            <img
+              src={mattLifestyle}
+              alt="Matt Arana"
+              loading="lazy"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </div>
+        <div className="lg:col-span-7 lg:pt-6">
+          <p className="accent-rule text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            Meet Matt
+          </p>
+          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] sm:text-5xl">
+            The advisor behind the strategy.
+          </h2>
+          <p className="mt-6 max-w-xl leading-relaxed text-neutral-700">
+            Touring musician with a record deal. Top-5 producer at GE Capital. Now a mortgage advisor who believes the most important financial transaction in most people's lives deserves more than a call center and a chatbot.
+          </p>
+          <div className="mt-8 grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
+            {[
+              { k: "25+", v: "Years in finance" },
+              { k: "Top 5", v: "GE Capital producer" },
+              { k: "3", v: "States licensed" },
+            ].map((s) => (
+              <div key={s.v}>
+                <p className="font-display text-3xl text-neutral-900">{s.k}</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-neutral-500">{s.v}</p>
+              </div>
+            ))}
+          </div>
+          <Link
+            to="/about"
+            className="mt-10 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-neutral-900 underline-offset-8 hover:underline"
           >
-            <CarouselContent>
-              {testimonials.map((t) => (
-                <CarouselItem key={t.name}>
-                  <blockquote className="font-display text-3xl uppercase leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-                    “{t.quote}”
-                  </blockquote>
-                  <div className="mt-10 flex items-center gap-4 border-t border-border pt-6">
-                    <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--brand-blue)] to-[var(--brand-orange)]" />
-                    <div>
-                      <p className="font-display text-sm uppercase tracking-wider text-foreground">
-                        {t.name}
-                      </p>
-                      <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                        {t.detail}
-                      </p>
+            Read Matt's full story <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 10: Closing CTA ---------------- */
+function ClosingCTA() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", goal: "First-Time Buyer" });
+  const [submitted, setSubmitted] = useState(false);
+
+  return (
+    <section className="relative overflow-hidden">
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_0%,oklch(0.62_0.22_255/0.18),transparent_70%)]" />
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+        <div className="grid gap-12 rounded-lg border border-border bg-gradient-to-br from-[var(--surface)] to-background p-8 lg:grid-cols-12 lg:gap-16 lg:p-14">
+          <div className="lg:col-span-6">
+            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+              Book your strategy call
+            </p>
+            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.02] text-foreground sm:text-5xl lg:text-6xl">
+              A 30-minute call could save you 30 years of guessing.
+            </h2>
+            <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+              No pressure, no rate pitch. Real numbers, real options, and a written plan you keep — whether we work together or not.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {[
+                { icon: Calendar, t: "30 minutes, scheduled around you" },
+                { icon: Home, t: "Custom affordability + program comparison" },
+                { icon: Users, t: "Available evenings + weekends" },
+              ].map((b) => {
+                const Icon = b.icon;
+                return (
+                  <li key={b.t} className="flex items-center gap-3 text-sm text-foreground">
+                    <Icon className="h-4 w-4 text-[var(--brand-orange)]" />
+                    {b.t}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-6">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSubmitted(true);
+              }}
+              className="rounded-md border border-border bg-background/70 p-6 backdrop-blur sm:p-8"
+            >
+              {submitted ? (
+                <div className="flex flex-col items-start gap-4 py-8">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-orange)]/15 text-[var(--brand-orange)]">
+                    <CheckCircle2 className="h-6 w-6" />
+                  </span>
+                  <h3 className="font-display text-2xl uppercase text-foreground">You're on the calendar.</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Matt will reach out within 24 hours to confirm a time. Welcome to the strategy side of lending.
+                  </p>
+                </div>
+              ) : (
+                <div className="grid gap-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <Field label="Full name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} />
+                    <Field label="Phone" value={form.phone} onChange={(v) => setForm({ ...form, phone: v })} />
+                  </div>
+                  <Field label="Email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} type="email" />
+                  <div>
+                    <label className="text-[11px] uppercase tracking-wider text-muted-foreground">Primary goal</label>
+                    <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                      {["First-Time Buyer", "Refinance", "Investor", "Self-Employed"].map((g) => (
+                        <button
+                          key={g}
+                          type="button"
+                          onClick={() => setForm({ ...form, goal: g })}
+                          className={`rounded-sm border px-2 py-2 text-[11px] font-semibold uppercase tracking-wider transition-colors ${
+                            form.goal === g
+                              ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-foreground"
+                              : "border-border text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          {g}
+                        </button>
+                      ))}
                     </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="mt-10 flex items-center justify-end gap-3">
-              <CarouselPrevious className="static h-10 w-10 translate-y-0 rounded-sm border-border bg-background/60 text-foreground hover:bg-[var(--brand-orange)] hover:text-background" />
-              <CarouselNext className="static h-10 w-10 translate-y-0 rounded-sm border-border bg-background/60 text-foreground hover:bg-[var(--brand-orange)] hover:text-background" />
-            </div>
-          </Carousel>
+                  <button
+                    type="submit"
+                    className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
+                  >
+                    Book my strategy call
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                  <p className="text-center text-[11px] text-muted-foreground">
+                    Licensed in MO · IL · FL · Powered by Cornerstone First
+                  </p>
+                </div>
+              )}
+            </form>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-        <div className="grid gap-10 rounded-sm border border-border bg-[var(--surface)] p-10 lg:grid-cols-12 lg:p-16">
-          <div className="lg:col-span-8">
-            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-              Let's position you to win
-            </p>
-            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl lg:text-6xl">
-              You're closer than you think. Let's take the next step together.
-            </h2>
-          </div>
-          <div className="flex flex-col justify-end gap-4 lg:col-span-4">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
-            >
-              Book a Strategy Call
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/education"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-border px-6 py-4 text-sm font-semibold uppercase tracking-wider text-foreground hover:border-foreground"
-            >
-              Browse Education
-            </Link>
-          </div>
-        </div>
-      </section>
+function Field({
+  label,
+  value,
+  onChange,
+  type = "text",
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+}) {
+  return (
+    <div>
+      <label className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</label>
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-2 w-full rounded-sm border border-border bg-background/60 px-4 py-3 text-sm text-foreground outline-none focus:border-[var(--brand-orange)]"
+      />
     </div>
   );
 }
