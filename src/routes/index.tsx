@@ -856,10 +856,14 @@ function MeetMatt() {
             Meet The Team
           </p>
           <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] sm:text-5xl">
-            The advisors behind the strategy.
+            The road was not straight. That is why the advice is sharper.
           </h2>
           <p className="mt-6 max-w-xl leading-relaxed text-neutral-700">
-            Mortgage Rockstar is a team of advisors, processors, and strategists led by founder Matt Arana. Together we believe the most important financial transaction in most people's lives deserves more than a call center and a chatbot.
+            Mortgage Rockstar™ is Matt Arana's education-first mortgage
+            guidance platform, powered by Cornerstone First Mortgage. The
+            personal brand is the front door. Cornerstone First is the engine.
+            The result is real human mortgage guidance with institutional
+            capability.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
             {[
