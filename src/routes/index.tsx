@@ -113,19 +113,19 @@ function StrategyHero() {
         <div className="lg:col-span-6 lg:pt-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
             <Sparkles className="h-3 w-3 text-[var(--brand-orange)]" />
-            Strategy-first mortgage advising
+            Mortgage clarity before commitment
           </span>
           <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-[76px]">
-            Know what
+            Fall in love
             <br />
-            you can afford
+            with the
             <br />
-            <span className="text-[var(--brand-orange)]">before</span> you shop.
+            <span className="text-[var(--brand-orange)]">numbers</span> first.
           </h1>
           <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-muted-foreground">
-            Run the numbers in seconds. See your true buying power, your monthly
-            payment, and the exact next step — all before you ever talk to a
-            realtor.
+            Before you fall in love with the house, understand the payment, the
+            cash to close, and the mortgage strategy behind it. Human strategy.
+            Clear numbers. Rockstar follow-through.
           </p>
 
           <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
