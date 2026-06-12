@@ -329,11 +329,13 @@ function ChoosePath() {
               Choose your path
             </p>
             <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-              Different goals deserve different playbooks.
+              You are not caller number 39.
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Pick the path closest to where you are right now. Every track unlocks a tailored journey, programs, and resources.
+            Real conversations, real judgment, and real follow-through. Pick the
+            path closest to where you are — every track unlocks a tailored
+            playbook built around your situation.
           </p>
         </div>
 
