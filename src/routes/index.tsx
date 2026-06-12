@@ -904,10 +904,12 @@ function ClosingCTA() {
               Book your strategy call
             </p>
             <h2 className="mt-5 font-display text-4xl uppercase leading-[1.02] text-foreground sm:text-5xl lg:text-6xl">
-              A 30-minute call could save you 30 years of guessing.
+              You do not need to guess your way through this.
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
-              No pressure, no sales pitch. Real numbers, real options, and a written plan you keep — whether we work together or not.
+              Bring the question. We'll help you understand what it actually
+              means for you. Clarity first — strategy second — commitment only
+              when the numbers are right.
             </p>
             <ul className="mt-8 space-y-3">
               {[
@@ -974,7 +976,7 @@ function ClosingCTA() {
                     type="submit"
                     className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
                   >
-                    Book my strategy call
+                    Start my mortgage conversation
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                   <p className="text-center text-[11px] text-muted-foreground">
