@@ -10,8 +10,9 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              A mortgage experience built on clarity, strategy, and trust —
-              delivered through a recognizable and engaging personal brand.
+              Mortgage Rockstar™ is Matt Arana's education-first mortgage
+              guidance platform, powered by Cornerstone First Mortgage. Human
+              strategy. Clear numbers. Rockstar follow-through.
             </p>
             <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Powered by Cornerstone First

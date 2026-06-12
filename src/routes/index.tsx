@@ -113,19 +113,19 @@ function StrategyHero() {
         <div className="lg:col-span-6 lg:pt-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
             <Sparkles className="h-3 w-3 text-[var(--brand-orange)]" />
-            Strategy-first mortgage advising
+            Mortgage clarity before commitment
           </span>
           <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-[76px]">
-            Know what
+            Fall in love
             <br />
-            you can afford
+            with the
             <br />
-            <span className="text-[var(--brand-orange)]">before</span> you shop.
+            <span className="text-[var(--brand-orange)]">numbers</span> first.
           </h1>
           <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-muted-foreground">
-            Run the numbers in seconds. See your true buying power, your monthly
-            payment, and the exact next step — all before you ever talk to a
-            realtor.
+            Before you fall in love with the house, understand the payment, the
+            cash to close, and the mortgage strategy behind it. Human strategy.
+            Clear numbers. Rockstar follow-through.
           </p>
 
           <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
@@ -329,11 +329,13 @@ function ChoosePath() {
               Choose your path
             </p>
             <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-              Different goals deserve different playbooks.
+              You are not caller number 39.
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Pick the path closest to where you are right now. Every track unlocks a tailored journey, programs, and resources.
+            Real conversations, real judgment, and real follow-through. Pick the
+            path closest to where you are — every track unlocks a tailored
+            playbook built around your situation.
           </p>
         </div>
 
@@ -854,10 +856,14 @@ function MeetMatt() {
             Meet The Team
           </p>
           <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] sm:text-5xl">
-            The advisors behind the strategy.
+            The road was not straight. That is why the advice is sharper.
           </h2>
           <p className="mt-6 max-w-xl leading-relaxed text-neutral-700">
-            Mortgage Rockstar is a team of advisors, processors, and strategists led by founder Matt Arana. Together we believe the most important financial transaction in most people's lives deserves more than a call center and a chatbot.
+            Mortgage Rockstar™ is Matt Arana's education-first mortgage
+            guidance platform, powered by Cornerstone First Mortgage. The
+            personal brand is the front door. Cornerstone First is the engine.
+            The result is real human mortgage guidance with institutional
+            capability.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
             {[
@@ -898,10 +904,12 @@ function ClosingCTA() {
               Book your strategy call
             </p>
             <h2 className="mt-5 font-display text-4xl uppercase leading-[1.02] text-foreground sm:text-5xl lg:text-6xl">
-              A 30-minute call could save you 30 years of guessing.
+              You do not need to guess your way through this.
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
-              No pressure, no sales pitch. Real numbers, real options, and a written plan you keep — whether we work together or not.
+              Bring the question. We'll help you understand what it actually
+              means for you. Clarity first — strategy second — commitment only
+              when the numbers are right.
             </p>
             <ul className="mt-8 space-y-3">
               {[
@@ -968,7 +976,7 @@ function ClosingCTA() {
                     type="submit"
                     className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
                   >
-                    Book my strategy call
+                    Start my mortgage conversation
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                   <p className="text-center text-[11px] text-muted-foreground">
