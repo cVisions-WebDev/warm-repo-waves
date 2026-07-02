@@ -64,6 +64,18 @@ const cases = [
       { k: "90 days", v: "Total" },
     ],
   },
+  {
+    headline: "Relocation hire — closed before the moving truck.",
+    who: "Dr. Alex M. · Relocating to St. Louis, MO",
+    detail:
+      "Wash U medical hire moving from out of state on a tight employer timeline. We coordinated remote underwriting, walked them through the local market, and closed in time for their start date.",
+    image: stockCouple,
+    stats: [
+      { k: "$780K", v: "Purchase price" },
+      { k: "22 days", v: "Contract-to-close" },
+      { k: "100%", v: "Remote process" },
+    ],
+  },
 ];
 
 const quickQuotes = [
