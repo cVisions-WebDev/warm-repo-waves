@@ -1,5 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Home, Gem, Shield, TrendingUp, Sparkles, Briefcase } from "lucide-react";
+import {
+  ArrowRight,
+  Home,
+  Gem,
+  Shield,
+  TrendingUp,
+  Sparkles,
+  Briefcase,
+  MapPin,
+  HeartHandshake,
+  Users,
+} from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/services")({
@@ -65,6 +76,39 @@ const programs = [
     tag: "Self-employed, 1099, or non-traditional? Good.",
     body: "Where other lenders see a wall, we see the file. Bank statement loans, asset depletion, P&L-only, and creative structures done compliantly.",
     points: ["12 & 24 mo bank statement", "Asset depletion", "P&L only options"],
+  },
+  {
+    icon: MapPin,
+    name: "Relocation Purchase",
+    tag: "For professionals moving to a new market.",
+    body: "New job, employer-driven move, or a fresh start in an unfamiliar city — relocations come with compressed timelines and unfamiliar terrain. We coordinate with your employer's schedule, keep underwriting moving on tight windows, and orient you to a market you're still learning.",
+    points: [
+      "Employer-timeline coordination",
+      "Remote/rush underwriting",
+      "Local market orientation",
+    ],
+  },
+  {
+    icon: HeartHandshake,
+    name: "Divorce & Life-Transition",
+    tag: "Calm guidance through a complex moment.",
+    body: "Buyout refinances, post-decree purchases, and title restructuring — worked shoulder-to-shoulder with your attorney and financial advisor. Steady, private, and strictly focused on the mortgage side of the transition. Not legal advice.",
+    points: [
+      "Buyout refinance structuring",
+      "Post-decree purchases",
+      "Coordination with your attorney/CPA",
+    ],
+  },
+  {
+    icon: Users,
+    name: "Family-Assisted Purchase",
+    tag: "Gift funds, done right.",
+    body: "When family helps with the down payment, the paperwork matters as much as the intent. We structure multi-generational contributions correctly, document gift funds to lender standards, and set expectations upfront so nothing gets flagged at closing.",
+    points: [
+      "Gift fund documentation",
+      "Multi-generational structuring",
+      "Lender requirements explained upfront",
+    ],
   },
 ];
 
