@@ -650,7 +650,7 @@ function LoanPrograms() {
             to="/services"
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-orange)]"
           >
-            All 14 programs <ArrowRight className="h-4 w-4" />
+            All Loan Programs <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
