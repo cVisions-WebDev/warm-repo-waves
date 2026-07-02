@@ -9,8 +9,10 @@ import {
   Compass,
   FileText,
   GraduationCap,
+  HeartHandshake,
   Home,
   Key,
+  MapPin,
   PiggyBank,
   Search,
   Shield,
@@ -314,6 +316,20 @@ const paths = [
     body: "1099, K-1, bank-statement, P&L — we structure the income most lenders walk away from.",
     bullets: ["Bank-statement loans", "K-1 add-backs done right", "Complex income specialists"],
   },
+  {
+    icon: MapPin,
+    tag: "Path 05",
+    title: "Relocating",
+    body: "Moving to MO, IL, or FL for a new job? You need a lender who understands employer timelines and unfamiliar local markets.",
+    bullets: ["Employer-timeline coordination", "Remote-friendly, fast process", "Local market orientation included"],
+  },
+  {
+    icon: HeartHandshake,
+    tag: "Path 06",
+    title: "Family-Assisted",
+    body: "Using gift funds from family to help fund your down payment? We structure it cleanly so donors and buyers both know what to expect.",
+    bullets: ["Gift fund documentation done right", "Guidance for donors, not just buyers", "No surprises at closing"],
+  },
 ];
 
 function ChoosePath() {
@@ -339,7 +355,7 @@ function ChoosePath() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-4">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {paths.map((p, i) => {
             const Icon = p.icon;
             return (
@@ -503,6 +519,13 @@ const scenarios = [
     headline: "Leverage that actually compounds.",
     body: "Whether it's door #2 or door #20, we model the deal on cash-flow, refinance ladder, and tax strategy together — not a one-size-fits-all pitch.",
     solutions: ["DSCR no-doc", "Portfolio loans", "BRRRR-ready refis"],
+  },
+  {
+    id: "life",
+    label: "I'm navigating a divorce or major life change",
+    headline: "Calm, strategic guidance when the details matter most.",
+    body: "Buyout refinances and post-decree purchases handled with steady coordination alongside your attorney and financial advisors. We stay in our lane — mortgage structure and timing — and never offer legal advice or take sides.",
+    solutions: ["Buyout refinance structuring", "Post-decree purchase support", "Coordination with your attorney/CPA"],
   },
 ];
 
