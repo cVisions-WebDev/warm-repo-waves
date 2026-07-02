@@ -172,6 +172,9 @@ function AboutPage() {
             infrastructure, and operational depth of{" "}
             <strong className="text-foreground">Cornerstone First</strong>.
           </p>
+          <p className="w-full text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            New town, old vibe.
+          </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-background"
