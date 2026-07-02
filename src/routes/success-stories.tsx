@@ -5,6 +5,7 @@ import homeLuxury from "@/assets/home-luxury.jpg";
 import stockCouple from "@/assets/stock-couple-deal.jpg";
 import stockAgent from "@/assets/stock-agent-home.jpg";
 import stockHandshake from "@/assets/stock-handshake.jpg";
+import stockRelocation from "@/assets/stock-relocation.jpg";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
@@ -69,7 +70,7 @@ const cases = [
     who: "Dr. Alex M. · Relocating to St. Louis, MO",
     detail:
       "Wash U medical hire moving from out of state on a tight employer timeline. We coordinated remote underwriting, walked them through the local market, and closed in time for their start date.",
-    image: stockCouple,
+    image: stockRelocation,
     stats: [
       { k: "$780K", v: "Purchase price" },
       { k: "22 days", v: "Contract-to-close" },
