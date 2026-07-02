@@ -162,6 +162,9 @@ function ContactPage() {
                 center, a chatbot, or caller #39. Let's break this down simply
                 and figure out the right move together."
               </span>
+              <span className="mt-4 block font-display text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+                I'm a resource, not a source.
+              </span>
             </p>
           </aside>
         </div>
