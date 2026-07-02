@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Compass, BarChart3, TrendingUp } from "lucide-react";
+import { ArrowRight, BookOpen, Compass, BarChart3, TrendingUp, HeartHandshake, Users } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/education")({
@@ -33,9 +33,13 @@ const pillars = [
   { icon: TrendingUp, tag: "Wealth Building", title: "The long-term math: renting vs. owning", read: "10 min read" },
   { icon: BarChart3, tag: "Market Insight", title: "Local opportunity windows: MO, IL, FL", read: "6 min read" },
   { icon: BookOpen, tag: "Mortgage 101", title: "Credit insights every buyer should know", read: "5 min read" },
+  { icon: HeartHandshake, tag: "Life-Transition Clarity", title: "Buyout refinances, explained simply", read: "6 min read" },
+  { icon: HeartHandshake, tag: "Life-Transition Clarity", title: "What to expect: post-decree home purchases", read: "7 min read" },
+  { icon: Users, tag: "Family-Assisted Homeownership", title: "How gift funds actually work", read: "5 min read" },
+  { icon: Users, tag: "Family-Assisted Homeownership", title: "What families should know before the money moves", read: "6 min read" },
 ];
 
-const categories = ["All", "Mortgage 101", "Buyer Guidance", "Market Insight", "Wealth Building"];
+const categories = ["All", "Mortgage 101", "Buyer Guidance", "Market Insight", "Wealth Building", "Life-Transition Clarity", "Family-Assisted Homeownership"];
 
 function EducationPage() {
   return (
