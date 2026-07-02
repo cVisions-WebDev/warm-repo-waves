@@ -845,7 +845,7 @@ function MeetMatt() {
           <div className="overflow-hidden rounded-md bg-neutral-100">
             <img
               src={mattLifestyle}
-              alt="The Mortgage Rockstar team"
+              alt="Matt Arana, The Mortgage Rockstar"
               loading="lazy"
               className="h-auto w-full object-contain"
             />
@@ -853,7 +853,7 @@ function MeetMatt() {
         </div>
         <div className="lg:col-span-7 lg:pt-6">
           <p className="accent-rule text-xs font-semibold uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-            Meet The Team
+            Meet Matt
           </p>
           <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] sm:text-5xl">
             The road was not straight. That is why the advice is sharper.
@@ -867,9 +867,9 @@ function MeetMatt() {
           </p>
           <div className="mt-8 grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
             {[
-              { k: "25+", v: "Years combined" },
+              { k: "25+", v: "Years experience" },
               { k: "1,200+", v: "Families served" },
-              { k: "3", v: "States licensed" },
+              { k: "3", v: "States Matt is licensed in" },
             ].map((s) => (
               <div key={s.v}>
                 <p className="font-display text-3xl text-neutral-900">{s.k}</p>
@@ -881,7 +881,7 @@ function MeetMatt() {
             to="/about"
             className="mt-10 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-neutral-900 underline-offset-8 hover:underline"
           >
-            Read the team's story <ArrowRight className="h-4 w-4" />
+            Read Matt's story <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

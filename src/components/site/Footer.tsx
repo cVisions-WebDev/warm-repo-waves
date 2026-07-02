@@ -40,7 +40,7 @@ export function Footer() {
             <div>
               <h4 className="font-display text-xs uppercase tracking-[0.2em] text-foreground">Explore</h4>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-                <li><Link to="/about" className="hover:text-foreground">About The Team</Link></li>
+                <li><Link to="/about" className="hover:text-foreground">About Matt</Link></li>
                 <li><Link to="/services" className="hover:text-foreground">Loan Programs</Link></li>
                 <li><Link to="/education" className="hover:text-foreground">Education</Link></li>
                 <li><Link to="/success-stories" className="hover:text-foreground">Success Stories</Link></li>
