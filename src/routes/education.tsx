@@ -137,30 +137,35 @@ function EducationPage() {
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {videos.map((v, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setVideoOpen(true)}
-              className="group flex flex-col overflow-hidden rounded-sm border border-border bg-[var(--surface)] text-left transition-all hover:-translate-y-1 hover:border-[var(--brand-orange)]"
-            >
-              <div className="relative aspect-video w-full bg-black/60">
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40 transition-colors group-hover:bg-black/30">
-                  <PlayCircle className="h-16 w-16 text-[var(--brand-orange)]" strokeWidth={1.5} />
-                </div>
-              </div>
-              <div className="p-7">
-                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-orange)]">
-                  {v.tag}
-                </span>
-                <h3 className="mt-6 font-display text-xl uppercase leading-tight text-foreground">
-                  {v.title}
-                </h3>
-              </div>
-            </button>
-          ))}
-        </div>
+        <Carousel opts={{ align: "start" }} className="mt-14">
+          <CarouselContent>
+            {videos.map((v) => (
+              <CarouselItem key={v.title} className="sm:basis-1/2 lg:basis-1/3">
+                <button
+                  type="button"
+                  onClick={() => setVideoOpen(true)}
+                  className="group flex h-full w-full flex-col overflow-hidden rounded-sm border border-border bg-[var(--surface)] text-left transition-all hover:-translate-y-1 hover:border-[var(--brand-orange)]"
+                >
+                  <div className="relative aspect-video w-full bg-black/60">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 transition-colors group-hover:bg-black/30">
+                      <PlayCircle className="h-16 w-16 text-[var(--brand-orange)]" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  <div className="p-7">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-orange)]">
+                      {v.tag}
+                    </span>
+                    <h3 className="mt-6 font-display text-xl uppercase leading-tight text-foreground">
+                      {v.title}
+                    </h3>
+                  </div>
+                </button>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
+        </Carousel>
       </section>
 
       {videoOpen && (
