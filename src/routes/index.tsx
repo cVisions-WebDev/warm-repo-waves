@@ -57,6 +57,7 @@ function HomePage() {
     <div>
       <StrategyHero />
       <ChoosePath />
+      <WhyMortgageRockstar />
       <Roadmap />
       <Metrics />
       <Scenarios />
@@ -418,7 +419,73 @@ function ChoosePath() {
   );
 }
 
-/* ---------------- Section 3: Roadmap ---------------- */
+/* ---------------- Section 3: Why Mortgage Rockstar ---------------- */
+const whyCards = [
+  {
+    icon: Compass,
+    title: "Personalized Strategy",
+    body: "Every recommendation begins with understanding your goals, timeline, and financial picture.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education First",
+    body: "Complex mortgage topics become simple through clear explanations that empower confident decision-making.",
+  },
+  {
+    icon: Shield,
+    title: "Trusted Guidance",
+    body: "Every question receives honest answers, thoughtful recommendations, and personalized support.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Relationship Driven",
+    body: "Mortgage Rockstar believes the strongest client relationships continue well beyond closing day.",
+  },
+];
+
+function WhyMortgageRockstar() {
+  return (
+    <section className="border-y border-border bg-[var(--surface)]">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-28">
+        <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+          Why Mortgage Rockstar
+        </p>
+        <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+          More Than Mortgage Financing
+        </h2>
+        <p className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground">
+          Working with Mortgage Rockstar means gaining a trusted advisor who helps you make confident financial
+          decisions before, during, and long after closing.
+        </p>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyCards.map((c) => {
+            const Icon = c.icon;
+            return (
+              <div
+                key={c.title}
+                className="rounded-md border border-border bg-background p-7"
+              >
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-sm border border-[var(--brand-orange)] text-[var(--brand-orange)]">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 font-display text-xl uppercase leading-tight text-foreground">
+                  {c.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {c.body}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 4: Roadmap ---------------- */
+
 const roadmap = [
   { icon: Compass, label: "Discovery", body: "Goals, timeline, comfort zone — we listen first." },
   { icon: Sparkles, label: "Strategy", body: "Custom plan, real numbers, side-by-side options." },
