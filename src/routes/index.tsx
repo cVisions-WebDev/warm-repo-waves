@@ -65,6 +65,7 @@ function HomePage() {
       <EducationCenter />
       <BeforeAfter />
       <MeetMatt />
+      <SendReferral />
       <ClosingCTA />
     </div>
   );
