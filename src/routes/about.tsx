@@ -113,30 +113,34 @@ function AboutPage() {
 
       <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-          <div className="max-w-3xl">
-            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-              The Approach
-            </p>
-            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-              A Different Approach to Home Financing
-            </h2>
-            <div className="mt-8 space-y-6 leading-relaxed text-muted-foreground lg:text-lg">
-              <p>
-                Mortgage Rockstar was founded by Matt Arana with a simple belief:
-                buying a home deserves more than loan quotes and interest rates. It
-                deserves trusted guidance, thoughtful planning, and a relationship
-                built around your long-term financial success.
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+                The Approach
               </p>
-              <p>
-                Too often, buyers begin shopping for loan programs before
-                understanding which financing strategy best supports their future —
-                so Mortgage Rockstar takes a different approach. Education comes
-                first. Strategy follows. The loan simply becomes the solution.
+              <h2 className="mt-5 font-display text-5xl uppercase leading-[1.05] text-foreground sm:text-6xl">
+                A Different Approach to Home Financing
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="mt-8 space-y-6 leading-relaxed text-muted-foreground lg:text-lg">
+                <p>
+                  Mortgage Rockstar was founded by Matt Arana with a simple belief:
+                  buying a home deserves more than loan quotes and interest rates. It
+                  deserves trusted guidance, thoughtful planning, and a relationship
+                  built around your long-term financial success.
+                </p>
+                <p>
+                  Too often, buyers begin shopping for loan programs before
+                  understanding which financing strategy best supports their future —
+                  so Mortgage Rockstar takes a different approach. Education comes
+                  first. Strategy follows. The loan simply becomes the solution.
+                </p>
+              </div>
+              <p className="mt-10 border-l-2 border-[var(--brand-orange)] pl-6 text-foreground lg:text-lg">
+                Educate first. Guide with integrity. Build lasting relationships.
               </p>
             </div>
-            <p className="mt-10 border-l-2 border-[var(--brand-orange)] pl-6 text-foreground lg:text-lg">
-              Educate first. Guide with integrity. Build lasting relationships.
-            </p>
           </div>
         </div>
       </section>
