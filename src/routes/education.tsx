@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Compass, Home, CreditCard, PiggyBank, Percent, LineChart, PlayCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PageHero } from "@/components/site/PageHero";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/education")({
   head: () => ({
