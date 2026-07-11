@@ -65,6 +65,7 @@ function HomePage() {
       <EducationCenter />
       <BeforeAfter />
       <MeetMatt />
+      <SendReferral />
       <ClosingCTA />
     </div>
   );
@@ -987,7 +988,187 @@ function MeetMatt() {
   );
 }
 
-/* ---------------- Section 10: Closing CTA ---------------- */
+/* ---------------- Section 10: Send a Referral ---------------- */
+function SendReferral() {
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    yourName: "",
+    yourEmail: "",
+    yourPhone: "",
+    referralName: "",
+    referralContact: "",
+    comments: "",
+  });
+
+  const update = (key: keyof typeof form, value: string) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  return (
+    <section className="border-y border-border bg-[var(--surface)]">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+              Referrals
+            </p>
+            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+              Share Someone You Trust
+            </h2>
+            <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
+              The greatest compliment Mortgage Rockstar receives is a referral.
+              If someone you know could benefit from trusted mortgage guidance,
+              we'd be honored to help them achieve their homeownership goals.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            {submitted ? (
+              <div className="flex flex-col items-start gap-5 rounded-sm border border-[var(--brand-orange)] bg-background p-10">
+                <CheckCircle2 className="h-10 w-10 text-[var(--brand-orange)]" />
+                <h3 className="font-display text-2xl uppercase text-foreground">
+                  Thanks — we'll pass this along personally.
+                </h3>
+                <p className="text-muted-foreground">
+                  Matt reaches out to every referral within one business day.
+                </p>
+              </div>
+            ) : (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSubmitted(true);
+                }}
+                className="space-y-5 rounded-sm border border-border bg-background p-8 lg:p-10"
+              >
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="yourName"
+                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                    >
+                      Your Name <span className="text-[var(--brand-orange)]">*</span>
+                    </label>
+                    <input
+                      id="yourName"
+                      name="yourName"
+                      type="text"
+                      required
+                      value={form.yourName}
+                      onChange={(e) => update("yourName", e.target.value)}
+                      className="h-12 w-full rounded-sm border border-border bg-background px-4 text-foreground focus:border-[var(--brand-orange)] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="yourEmail"
+                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                    >
+                      Your Email <span className="text-[var(--brand-orange)]">*</span>
+                    </label>
+                    <input
+                      id="yourEmail"
+                      name="yourEmail"
+                      type="email"
+                      required
+                      value={form.yourEmail}
+                      onChange={(e) => update("yourEmail", e.target.value)}
+                      className="h-12 w-full rounded-sm border border-border bg-background px-4 text-foreground focus:border-[var(--brand-orange)] focus:outline-none"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="yourPhone"
+                    className="mb-2 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
+                    Your Phone
+                  </label>
+                  <input
+                    id="yourPhone"
+                    name="yourPhone"
+                    type="tel"
+                    value={form.yourPhone}
+                    onChange={(e) => update("yourPhone", e.target.value)}
+                    className="h-12 w-full rounded-sm border border-border bg-background px-4 text-foreground focus:border-[var(--brand-orange)] focus:outline-none"
+                  />
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="referralName"
+                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                    >
+                      Referral's Name <span className="text-[var(--brand-orange)]">*</span>
+                    </label>
+                    <input
+                      id="referralName"
+                      name="referralName"
+                      type="text"
+                      required
+                      value={form.referralName}
+                      onChange={(e) => update("referralName", e.target.value)}
+                      className="h-12 w-full rounded-sm border border-border bg-background px-4 text-foreground focus:border-[var(--brand-orange)] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="referralContact"
+                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                    >
+                      Referral's Contact Information <span className="text-[var(--brand-orange)]">*</span>
+                    </label>
+                    <input
+                      id="referralContact"
+                      name="referralContact"
+                      type="text"
+                      required
+                      value={form.referralContact}
+                      onChange={(e) => update("referralContact", e.target.value)}
+                      className="h-12 w-full rounded-sm border border-border bg-background px-4 text-foreground focus:border-[var(--brand-orange)] focus:outline-none"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="comments"
+                    className="mb-2 block text-xs font-bold uppercase tracking-wider text-muted-foreground"
+                  >
+                    Comments
+                  </label>
+                  <textarea
+                    id="comments"
+                    name="comments"
+                    rows={4}
+                    value={form.comments}
+                    onChange={(e) => update("comments", e.target.value)}
+                    className="w-full rounded-sm border border-border bg-background p-4 text-foreground placeholder:text-muted-foreground focus:border-[var(--brand-orange)] focus:outline-none"
+                  />
+                </div>
+                <div className="flex flex-col items-start gap-5 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-7 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
+                  >
+                    Refer Someone Today <ArrowRight className="h-4 w-4" />
+                  </button>
+                  <Link
+                    to="/contact"
+                    className="text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:text-[var(--brand-orange)]"
+                  >
+                    Become a Referral Partner
+                  </Link>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Section 11: Closing CTA ---------------- */
 function ClosingCTA() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", goal: "First-Time Buyer" });
   const [submitted, setSubmitted] = useState(false);
