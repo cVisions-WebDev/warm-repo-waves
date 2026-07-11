@@ -53,6 +53,14 @@ const videos = [
 
 const VIDEO_EMBED_URL = "https://www.youtube.com/embed/Y-x0efG1seA?autoplay=1";
 
+const guides = [
+  "First-Time Homebuyer Guide",
+  "Self-Employed Borrower Guide",
+  "Investor Financing Guide",
+  "Mortgage Preparation Checklist",
+  "Home Buying Timeline",
+];
+
 function EducationPage() {
   const [videoOpen, setVideoOpen] = useState(false);
 
