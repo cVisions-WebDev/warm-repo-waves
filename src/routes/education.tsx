@@ -208,6 +208,39 @@ function EducationPage() {
         </div>
       )}
 
+      <section className="border-t border-border mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-10 lg:py-24">
+        <div className="max-w-3xl">
+          <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            Free Downloadable Guides
+          </p>
+          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+            Take it with you.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {guides.map((g) => (
+            <article
+              key={g}
+              className="group flex flex-col justify-between rounded-sm border border-border bg-[var(--surface)] p-7 transition-all hover:-translate-y-1 hover:border-[var(--brand-orange)]"
+            >
+              <div>
+                <FileText className="h-8 w-8 text-[var(--brand-orange)]" strokeWidth={1.5} />
+                <h3 className="mt-5 font-display text-xl uppercase leading-tight text-foreground">
+                  {g}
+                </h3>
+              </div>
+              <button
+                type="button"
+                className="mt-8 inline-flex items-center gap-2 self-start text-xs font-bold uppercase tracking-wider text-foreground transition-colors group-hover:text-[var(--brand-orange)]"
+              >
+                Download <Download className="h-3.5 w-3.5" />
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="border-t border-border bg-[var(--surface)]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-10 lg:py-28">
           <div className="lg:col-span-7">
