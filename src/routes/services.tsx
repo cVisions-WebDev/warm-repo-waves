@@ -6,7 +6,6 @@ import {
   Shield,
   TrendingUp,
   Sparkles,
-  Briefcase,
   MapPin,
   HeartHandshake,
   Users,
@@ -20,7 +19,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Conventional, Jumbo & Luxury, VA, Investor/DSCR, First-Time Buyer, and Complex Income solutions — structured to win long term.",
+          "Conventional, Jumbo & Luxury, VA, Investor/DSCR, First-Time Buyer, Relocation, Divorce & Life-Transition, and Family-Assisted solutions — structured to win long term.",
       },
       { property: "og:title", content: "Loan Programs — Mortgage Rockstar" },
       {
@@ -41,6 +40,7 @@ const programs = [
     tag: "The fundamentals, done right.",
     body: "Smart structure for the long game. Fixed and adjustable terms designed around your real timeline — not just the flashiest offer.",
     points: ["Fixed & ARM options", "Down payments from 3%", "Strategic refi positioning"],
+    cta: "See if a Conventional Loan Fits Your Goals",
   },
   {
     icon: Gem,
@@ -48,13 +48,15 @@ const programs = [
     tag: "$1M+ financing without the institutional distance.",
     body: "Sophisticated structures for high-net-worth borrowers, second-home buyers, and luxury properties. Boutique attention, institutional power.",
     points: ["Up to $5M+ loan amounts", "Second-home & luxury", "Bank statement & asset-based"],
+    cta: "Explore Jumbo Financing",
   },
   {
     icon: Shield,
     name: "VA Loans",
     tag: "Earned. Honored. Maximized.",
-    body: "Expert guidance for veterans and active-duty buyers who deserve a lender that actually knows the entitlement rules and the eligibility nuances.",
+    body: "Expert guidance for veterans, active-duty buyers, and eligible surviving spouses who deserve a lender that actually knows the entitlement rules and the eligibility nuances.",
     points: ["0% down options", "No PMI", "VA jumbo expertise"],
+    cta: "Learn About Your VA Benefits",
   },
   {
     icon: TrendingUp,
@@ -62,20 +64,15 @@ const programs = [
     tag: "Leverage and scale for serious investors.",
     body: "Qualify based on the property's cash flow, not your tax returns. Built for portfolio builders, BRRRR strategies, and 1031 timing.",
     points: ["DSCR & no-doc options", "Portfolio scaling", "Short-term rental friendly"],
+    cta: "Explore Investor Financing",
   },
   {
     icon: Sparkles,
     name: "First-Time Buyer",
     tag: "Step-by-step clarity for your first move.",
     body: "The average first-time buyer is now 40. We sit down and explain how homeownership fits into the long-term, wealth-building picture — then we structure it right.",
-    points: ["Down-payment strategy", "Credit positioning", "Long-term equity planning"],
-  },
-  {
-    icon: Briefcase,
-    name: "Complex Income",
-    tag: "Self-employed, 1099, or non-traditional? Good.",
-    body: "Where other lenders see a wall, we see the file. Bank statement loans, asset depletion, P&L-only, and creative structures done compliantly.",
-    points: ["12 & 24 mo bank statement", "Asset depletion", "P&L only options"],
+    points: ["Down-payment strategy", "Credit positioning", "Closing cost planning", "Long-term equity planning"],
+    cta: "Start Your First-Time Buyer Strategy",
   },
   {
     icon: MapPin,
@@ -87,28 +84,32 @@ const programs = [
       "Remote/rush underwriting",
       "Local market orientation",
     ],
+    cta: "Plan Your Relocation",
   },
   {
     icon: HeartHandshake,
     name: "Divorce & Life-Transition",
     tag: "Calm guidance through a complex moment.",
-    body: "Buyout refinances, post-decree purchases, and title restructuring — worked shoulder-to-shoulder with your attorney and financial advisor. Steady, private, and strictly focused on the mortgage side of the transition. Not legal advice.",
+    body: "Divorce, separation, estate transitions, financial restructuring, and new beginnings all create mortgage decisions of their own. We work shoulder-to-shoulder with your attorney and financial advisor, staying steady, private, and strictly focused on the mortgage side of the transition. Not legal advice.",
     points: [
-      "Buyout refinance structuring",
-      "Post-decree purchases",
-      "Coordination with your attorney/CPA",
+      "Divorce & separation refinance structuring",
+      "Estate & inheritance-related purchases",
+      "Financial restructuring for new beginnings",
     ],
+    cta: "Schedule a Private Consultation",
   },
   {
     icon: Users,
     name: "Family-Assisted Purchase",
     tag: "Gift funds, done right.",
-    body: "When family helps with the down payment, the paperwork matters as much as the intent. We structure multi-generational contributions correctly, document gift funds to lender standards, and set expectations upfront so nothing gets flagged at closing.",
+    body: "When family helps with the down payment — or joins as a co-borrower — the paperwork matters as much as the intent. We structure multi-generational contributions and co-borrower arrangements correctly, document gift funds to lender standards, and set expectations upfront so nothing gets flagged at closing.",
     points: [
       "Gift fund documentation",
       "Multi-generational structuring",
+      "Co-borrower structuring",
       "Lender requirements explained upfront",
     ],
+    cta: "Explore Family Purchase Options",
   },
 ];
 
@@ -161,7 +162,7 @@ function ServicesPage() {
                 to="/contact"
                 className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-foreground hover:text-[var(--brand-orange)]"
               >
-                Discuss this program <ArrowRight className="h-3.5 w-3.5" />
+                {p.cta} <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </article>
           ))}
