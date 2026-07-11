@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Compass, BarChart3, TrendingUp, HeartHandshake, Users } from "lucide-react";
+import { ArrowRight, BookOpen, Compass, Home, CreditCard, PiggyBank, Percent, LineChart } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/education")({
@@ -24,22 +24,22 @@ export const Route = createFileRoute("/education")({
 });
 
 const pillars = [
-  { icon: BookOpen, tag: "Mortgage 101", title: "Loan types explained without the jargon", read: "6 min read" },
-  { icon: Compass, tag: "Buyer Guidance", title: "What to do before you fall in love with a house", read: "5 min read" },
-  { icon: BarChart3, tag: "Market Insight", title: "Reading the housing market (and what it actually means)", read: "8 min read" },
-  { icon: TrendingUp, tag: "Wealth Building", title: "Why homeownership is still the cleanest path to wealth", read: "9 min read" },
-  { icon: BookOpen, tag: "Mortgage 101", title: "Pre-approval vs. pre-qualification: get the right one", read: "4 min read" },
-  { icon: Compass, tag: "Buyer Guidance", title: "The 5 most expensive mistakes first-time buyers make", read: "7 min read" },
-  { icon: TrendingUp, tag: "Wealth Building", title: "The long-term math: renting vs. owning", read: "10 min read" },
-  { icon: BarChart3, tag: "Market Insight", title: "Local opportunity windows: MO, IL, FL", read: "6 min read" },
-  { icon: BookOpen, tag: "Mortgage 101", title: "Credit insights every buyer should know", read: "5 min read" },
-  { icon: HeartHandshake, tag: "Life-Transition Clarity", title: "Buyout refinances, explained simply", read: "6 min read" },
-  { icon: HeartHandshake, tag: "Life-Transition Clarity", title: "What to expect: post-decree home purchases", read: "7 min read" },
-  { icon: Users, tag: "Family-Assisted Homeownership", title: "How gift funds actually work", read: "5 min read" },
-  { icon: Users, tag: "Family-Assisted Homeownership", title: "What families should know before the money moves", read: "6 min read" },
+  { icon: Compass, tag: "Mortgage Planning", title: "Loan types explained without the jargon", read: "6 min read" },
+  { icon: Home, tag: "First-Time Homebuying", title: "What to do before you fall in love with a house", read: "5 min read" },
+  { icon: Percent, tag: "Interest Rates", title: "Reading the housing market (and what it actually means)", read: "8 min read" },
+  { icon: LineChart, tag: "Investment Financing", title: "Why homeownership is still the cleanest path to wealth", read: "9 min read" },
+  { icon: Compass, tag: "Mortgage Planning", title: "Pre-approval vs. pre-qualification: get the right one", read: "4 min read" },
+  { icon: Home, tag: "First-Time Homebuying", title: "The 5 most expensive mistakes first-time buyers make", read: "7 min read" },
+  { icon: LineChart, tag: "Investment Financing", title: "The long-term math: renting vs. owning", read: "10 min read" },
+  { icon: LineChart, tag: "Investment Financing", title: "Local opportunity windows: MO, IL, FL", read: "6 min read" },
+  { icon: CreditCard, tag: "Credit Improvement", title: "Credit insights every buyer should know", read: "5 min read" },
+  { icon: Compass, tag: "Mortgage Planning", title: "Buyout refinances, explained simply", read: "6 min read" },
+  { icon: Compass, tag: "Mortgage Planning", title: "What to expect: post-decree home purchases", read: "7 min read" },
+  { icon: PiggyBank, tag: "Down Payment Strategies", title: "How gift funds actually work", read: "5 min read" },
+  { icon: PiggyBank, tag: "Down Payment Strategies", title: "What families should know before the money moves", read: "6 min read" },
 ];
 
-const categories = ["All", "Mortgage 101", "Buyer Guidance", "Market Insight", "Wealth Building", "Life-Transition Clarity", "Family-Assisted Homeownership"];
+const categories = ["All", "First-Time Homebuying", "Credit Improvement", "Down Payment Strategies", "Interest Rates", "Mortgage Planning", "Investment Financing"];
 
 function EducationPage() {
   return (
