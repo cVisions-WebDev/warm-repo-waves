@@ -877,13 +877,21 @@ function BeforeAfter() {
   return (
     <section className="border-y border-border bg-[var(--surface)]">
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-        <div className="max-w-2xl">
-          <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
-            Client wins
-          </p>
-          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-            Real before. Real after.
-          </h2>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+              Client wins
+            </p>
+            <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+              Real People. Real Goals. Real Results.
+            </h2>
+          </div>
+          <Link
+            to="/success-stories"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-orange)]"
+          >
+            Read Client Success Stories <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
