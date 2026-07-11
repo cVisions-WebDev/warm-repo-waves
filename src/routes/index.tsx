@@ -118,11 +118,11 @@ function StrategyHero() {
             Mortgage clarity before commitment
           </span>
           <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-[76px]">
-            Fall in love
+            Your Mortgage.
             <br />
-            with the
+            Your Future.
             <br />
-            <span className="text-[var(--brand-orange)]">numbers</span> first.
+            Your <span className="text-[var(--brand-orange)]">Strategy</span>.
           </h1>
           <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-muted-foreground">
             Before you fall in love with the house, understand the payment, the
@@ -408,7 +408,7 @@ function ChoosePath() {
               to="/contact"
               className="group inline-flex items-center justify-between gap-2 rounded-sm bg-[var(--brand-orange)] px-5 py-4 text-sm font-bold uppercase tracking-wider text-background hover:-translate-y-0.5 transition-transform"
             >
-              Start my {A.title.split(" ")[0]} plan
+              Start your {A.title.split(" ")[0]} plan
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -603,7 +603,7 @@ function Scenarios() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand-orange)] px-5 py-3 text-xs font-bold uppercase tracking-wider text-background hover:-translate-y-0.5 transition-transform"
               >
-                Get my custom structure
+                Get your custom structure
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
               <Link
@@ -666,7 +666,7 @@ function LoanPrograms() {
               Loan programs
             </p>
             <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-              Compare. Then choose.
+              Financing Solutions Built Around Your Goals
             </h2>
           </div>
           <Link
@@ -712,7 +712,7 @@ function LoanPrograms() {
                     : "border border-border text-foreground hover:border-foreground"
                 }`}
               >
-                Get my quote
+                Get your quote
               </Link>
             </div>
           ))}
@@ -739,14 +739,14 @@ function EducationCenter() {
             Education center
           </p>
           <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
-            Sharpen the strategy before the signature.
+            Begin Your Journey with Knowledge
           </h2>
         </div>
         <Link
           to="/education"
           className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--brand-orange)]"
         >
-          Open the library <ArrowRight className="h-4 w-4" />
+          Visit the Education Center <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
 
@@ -999,7 +999,7 @@ function ClosingCTA() {
                     type="submit"
                     className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-6 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5"
                   >
-                    Start my mortgage conversation
+                    Start your mortgage conversation
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                   <p className="text-center text-[11px] text-muted-foreground">
