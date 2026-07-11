@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Compass, Home, CreditCard, PiggyBank, Percent, LineChart } from "lucide-react";
+import { ArrowRight, BookOpen, Compass, Home, CreditCard, PiggyBank, Percent, LineChart, PlayCircle, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/education")({
@@ -41,7 +42,33 @@ const pillars = [
 
 const categories = ["All", "First-Time Homebuying", "Credit Improvement", "Down Payment Strategies", "Interest Rates", "Mortgage Planning", "Investment Financing"];
 
+const videos = [
+  { tag: "Mortgage Tips", title: "Mortgage Tips: What most buyers get wrong" },
+  { tag: "Buyer Education", title: "Buyer Education: A clear path from offer to keys" },
+  { tag: "Market Updates", title: "Market Updates: What's moving rates right now" },
+  { tag: "Frequently Asked Questions", title: "FAQ: The questions every borrower should ask" },
+  { tag: "Financing Strategies", title: "Financing Strategies: Structuring the smarter loan" },
+];
+
+const VIDEO_EMBED_URL = "https://www.youtube.com/embed/Y-x0efG1seA?autoplay=1";
+
 function EducationPage() {
+  const [videoOpen, setVideoOpen] = useState(false);
+
+  useEffect(() => {
+    if (!videoOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setVideoOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [videoOpen]);
+
   return (
     <div>
       <PageHero
@@ -96,6 +123,76 @@ function EducationPage() {
           ))}
         </div>
       </section>
+
+      <section className="border-t border-border mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-10 lg:py-24">
+        <div className="max-w-3xl">
+          <p className="accent-rule text-xs uppercase tracking-[0.22em] text-[var(--brand-orange)]">
+            Video Learning Library
+          </p>
+          <h2 className="mt-5 font-display text-4xl uppercase leading-[1.05] text-foreground sm:text-5xl">
+            Watch. Learn.
+            <br />
+            Decide with confidence.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {videos.map((v, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setVideoOpen(true)}
+              className="group flex flex-col overflow-hidden rounded-sm border border-border bg-[var(--surface)] text-left transition-all hover:-translate-y-1 hover:border-[var(--brand-orange)]"
+            >
+              <div className="relative aspect-video w-full bg-black/60">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/40 transition-colors group-hover:bg-black/30">
+                  <PlayCircle className="h-16 w-16 text-[var(--brand-orange)]" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="p-7">
+                <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-orange)]">
+                  {v.tag}
+                </span>
+                <h3 className="mt-6 font-display text-xl uppercase leading-tight text-foreground">
+                  {v.title}
+                </h3>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setVideoOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative w-full max-w-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setVideoOpen(false)}
+              aria-label="Close video"
+              className="absolute -top-12 right-0 inline-flex h-10 w-10 items-center justify-center rounded-full bg-background text-foreground transition-colors hover:text-[var(--brand-orange)]"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="aspect-video w-full overflow-hidden rounded-lg bg-black">
+              <iframe
+                src={VIDEO_EMBED_URL}
+                title="Video"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <section className="border-t border-border bg-[var(--surface)]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-10 lg:py-28">
