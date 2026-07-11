@@ -103,7 +103,7 @@ function ContactPage() {
                   type="submit"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[var(--brand-orange)] px-7 py-4 text-sm font-bold uppercase tracking-wider text-background transition-transform hover:-translate-y-0.5 sm:w-auto"
                 >
-                  Book a Strategy Call <ArrowRight className="h-4 w-4" />
+                  Schedule Your Mortgage Strategy Session <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
             )}
@@ -128,7 +128,7 @@ function ContactPage() {
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <MapPin className="h-4 w-4 text-[var(--brand-orange)]" />
-                  <span>Licensed in MO · IL · FL</span>
+                  <span>[Insert Office Address]</span>
                 </li>
               </ul>
             </div>
