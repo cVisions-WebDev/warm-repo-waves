@@ -102,7 +102,7 @@ function StrategyHero() {
     <section className="relative isolate overflow-hidden pt-28 lg:pt-32">
       {/* ambient backdrop */}
       <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_0%,oklch(0.62_0.22_255/0.22),transparent_60%),radial-gradient(60%_50%_at_10%_20%,oklch(0.72_0.21_45/0.18),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_0%,oklch(1_0_0/0.22),transparent_60%),radial-gradient(60%_50%_at_10%_20%,oklch(0.553_0.068_224.205/0.18),transparent_60%)]" />
         <div
           className="absolute inset-0 opacity-[0.08]"
           style={{
