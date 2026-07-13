@@ -30,7 +30,7 @@ import stockHandshake from "@/assets/stock-handshake.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mortgage Rockstar™ — Know What You Can Afford Before You Shop." },
+      { title: "Mortgage Rockstar™ — Helping You Make Confident Mortgage Decisions with Trusted Guidance." },
       {
         name: "description",
         content:
