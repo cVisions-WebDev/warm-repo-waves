@@ -1175,7 +1175,7 @@ function ClosingCTA() {
 
   return (
     <section className="relative overflow-hidden">
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_0%,oklch(0.62_0.22_255/0.18),transparent_70%)]" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_0%,oklch(1_0_0/0.18),transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
         <div className="grid gap-12 rounded-lg border border-border bg-gradient-to-br from-[var(--surface)] to-background p-8 lg:grid-cols-12 lg:gap-16 lg:p-14">
           <div className="lg:col-span-6">
