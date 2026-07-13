@@ -5,13 +5,13 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       to="/"
-      className={`group inline-block ${className}`}
+      className={`inline-block ${className}`}
       aria-label="Mortgage Rockstar home"
     >
       <img
         src={logoAsset.url}
         alt="Mortgage Rockstar"
-        className="h-9 w-auto transition-opacity duration-300 group-hover:opacity-85"
+        className="h-12 w-auto"
       />
     </Link>
   );
