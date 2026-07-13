@@ -79,9 +79,9 @@
   --card-foreground: oklch(0.16 0.005 270);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.16 0.005 270);
-  --primary: oklch(0.62 0.22 255);                /* Electric Blue #1E6BFF */
+  --primary: oklch(1 0 0);                         /* white — placeholder, will change later */
   --primary-foreground: oklch(1 0 0);
-  --brand-blue: oklch(0.62 0.22 255);
+  --brand-blue: oklch(1 0 0);                      /* white — placeholder, will change later */
   --brand-orange: oklch(0.553 0.068 224.205);      /* #427B90 */
   --secondary: oklch(0.955 0.004 265);
   --secondary-foreground: oklch(0.16 0.005 270);
